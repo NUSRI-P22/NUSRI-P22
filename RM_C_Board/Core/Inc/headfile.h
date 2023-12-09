@@ -2,12 +2,13 @@
 #define HEADFILE_H
 #include "math.h"
 #include "stdio.h"
-#include "stdint.h"
+#include <stdint.h>
 #include "stdbool.h"
 #include "string.h"
 #include "stdlib.h"
 #include "stm32f4xx_it.h"
 #include "stm32f4xx_hal.h"
+#include "stm32f4xx_hal_rcc.h"
 #include "can.h"
 #include "dma.h"
 #include "tim.h"

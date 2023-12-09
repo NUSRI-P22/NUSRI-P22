@@ -51,7 +51,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-extern uint8_t flag_1ms;//³ÌÐòÑ­»·±êÖ¾
+extern uint8_t flag_1ms;//ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½Ö¾
 extern uint8_t flag_5ms;
 extern uint8_t flag_10ms;
 extern uint8_t flag_20ms;
@@ -61,7 +61,7 @@ extern uint8_t flag_200ms;
 extern uint8_t flag_500ms;
 extern uint8_t flag_1000ms;
 
-extern int stop_flag;//°´¼üÖÐÖ¹±êÖ¾
+extern int stop_flag;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½Ö¾
 
 
 
@@ -139,20 +139,20 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 		//IO
-//		HAL_GPIO_WritePin(GPIOH,GPIO_PIN_10,1);//À¶É«
-//		HAL_GPIO_WritePin(GPIOH,GPIO_PIN_11,1);//ÂÌÉ«
-//		HAL_GPIO_WritePin(GPIOH,GPIO_PIN_12,1);//ºìÉ«
-//		HAL_GPIO_TogglePin(GPIOH,GPIO_PIN_11);//IO·­×ª
-		//ÑÓÊ±(ms)
+//		HAL_GPIO_WritePin(GPIOH,GPIO_PIN_10,1);//ï¿½ï¿½É«
+//		HAL_GPIO_WritePin(GPIOH,GPIO_PIN_11,1);//ï¿½ï¿½É«
+//		HAL_GPIO_WritePin(GPIOH,GPIO_PIN_12,1);//ï¿½ï¿½É«
+//		HAL_GPIO_TogglePin(GPIOH,GPIO_PIN_11);//IOï¿½ï¿½×ª
+		//ï¿½ï¿½Ê±(ms)
 //		HAL_Delay(5000);
-//		__HAL_TIM_SetCompare(&htim5,TIM_CHANNEL_1,0);//0-65535  À¶É«
-//		__HAL_TIM_SetCompare(&htim5,TIM_CHANNEL_2,0);//0-65535  ÂÌÉ«
-//		__HAL_TIM_SetCompare(&htim5,TIM_CHANNEL_3,50000);//0-65535  ºìÉ«
+//		__HAL_TIM_SetCompare(&htim5,TIM_CHANNEL_1,0);//0-65535  ï¿½ï¿½É«
+//		__HAL_TIM_SetCompare(&htim5,TIM_CHANNEL_2,0);//0-65535  ï¿½ï¿½É«
+//		__HAL_TIM_SetCompare(&htim5,TIM_CHANNEL_3,50000);//0-65535  ï¿½ï¿½É«
 
-//	  CAN_cmd_chassis(1500,0,0,0);	1500µçÁ÷¶ÔÓ¦10000rpm
+//	  CAN_cmd_chassis(1500,0,0,0);	1500ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦10000rpm
 
 
-		if(stop_flag !=0)  //±£ÏÕ  °´ÏÂKEYÔòÍ£Ö¹³ÌÐò
+		if(stop_flag !=0)  //ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½KEYï¿½ï¿½Í£Ö¹ï¿½ï¿½ï¿½ï¿½
 			
 		{
 //			led_red_blink();
@@ -199,7 +199,7 @@ int main(void)
 							-motor_chassis[3].speed_rpm,
 							yaw,
 							acc,
-							dtime);  //0×óÇ° 1×óºó 2ÓÒºó 3ÓÒÇ°
+							dtime);  //0ï¿½ï¿½Ç° 1ï¿½ï¿½ï¿½ 2ï¿½Òºï¿½ 3ï¿½ï¿½Ç°
 			flag_5ms = 0;
 		}
 		if(flag_10ms == 1)

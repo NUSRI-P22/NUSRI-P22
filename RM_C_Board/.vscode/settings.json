@@ -1,0 +1,17 @@
+{
+    // This configuration is automatically made by Vscode C/C++ Extension
+    "files.associations": {
+        "main.h": "c",
+        "usart.h": "c",
+        "tim.h": "c",
+        "spi.h": "c",
+        "stm32f4xx_hal.h": "c",
+        "stm32f4xx_hal_conf.h": "c",
+        "stm32f4xx_hal_rcc.h": "c",
+        "stm32f4xx_hal_def.h": "c",
+        "headfile.h": "c",
+        "stm32f4xx.h": "c",
+        "user_delay.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}
