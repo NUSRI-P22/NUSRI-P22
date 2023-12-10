@@ -13,7 +13,7 @@ typedef struct{
     void (*TaskFunction)(void); // Task function
 }Task;
 
-const uint8_t max_tasks_num = 10; // Maximum number of tasks, which can be modified for more tasks
+#define max_tasks_num 10 // Maximum number of tasks, which can be modified for more tasks
 
 Task *TaskAdd(void (*TaskFunction)(void), uint8_t Period); // Add a task and return the task
 void TaskCheck(); // Check Task status and update Task status

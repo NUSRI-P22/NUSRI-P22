@@ -4,10 +4,11 @@
 
 #include "IMU.h"
 #include <math.h>
+#include "Fusion.h"
 
 FusionAhrs ahrs;
 float IMUdeltaTime = 0.005; // default 200Hz
-static float gyro[3], accel[3], temp, g = 9.975; // For SuZhou, JiangSu, China
+float gyro[3], accel[3], temp, g = 9.975; // For SuZhou, JiangSu, China
 
 void IMU_update()
 {

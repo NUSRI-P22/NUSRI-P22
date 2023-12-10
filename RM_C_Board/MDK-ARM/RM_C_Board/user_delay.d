@@ -2,7 +2,6 @@ rm_c_board/user_delay.o: ..\Core\Src\user_delay.c \
   ..\Core\Inc\user_delay.h ..\Core\Inc\headfile.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
@@ -14,6 +13,7 @@ rm_c_board/user_delay.o: ..\Core\Src\user_delay.c \
   ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h \
   ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h \
   ..\Drivers\CMSIS\Include\core_cm4.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ..\Drivers\CMSIS\Include\cmsis_version.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   ..\Drivers\CMSIS\Include\cmsis_armclang.h \
@@ -49,10 +49,10 @@ rm_c_board/user_delay.o: ..\Core\Src\user_delay.c \
   ..\Core\Inc\user_usart.h ..\Core\Inc\Joystick.h \
   ..\Core\Inc\BMI088driver.h ..\Core\Inc\struct_typedef.h \
   ..\Core\Inc\BMI088reg.h ..\Core\Inc\BMI088Middleware.h \
-  ..\Core\Inc\IMU.h ..\Core\Inc\ist8310driver_middleWare.h \
+  ..\Core\Inc\IMU.h ..\Core\Inc\FusionAhrs.h ..\Core\Inc\Fusion.h \
+  ..\Core\Inc\FusionAxes.h ..\Core\Inc\FusionMath.h \
+  ..\Core\Inc\FusionCalibration.h ..\Core\Inc\FusionCompass.h \
+  ..\Core\Inc\FusionOffset.h ..\Core\Inc\ist8310driver_middleWare.h \
   ..\Core\Inc\ist8310driver.h ..\Core\Inc\IST.h ..\Core\Inc\User_init.h \
-  ..\Core\Inc\FusionAhrs.h ..\Core\Inc\Fusion.h ..\Core\Inc\FusionAxes.h \
-  ..\Core\Inc\FusionMath.h ..\Core\Inc\FusionCalibration.h \
-  ..\Core\Inc\FusionCompass.h ..\Core\Inc\FusionOffset.h \
   ..\Core\Inc\pid.h ..\Core\Inc\Motor_Speed_pid.h ..\Core\Inc\sweep.h \
-  ..\Core\Inc\gps.h
+  ..\Core\Inc\gps.h ..\Core\Inc\Task.h

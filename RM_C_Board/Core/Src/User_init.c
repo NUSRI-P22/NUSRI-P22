@@ -4,6 +4,7 @@
 
 #include "User_init.h"
 
+extern FusionAhrs ahrs;
 void Init_all()
 {
 	can_filter_init();

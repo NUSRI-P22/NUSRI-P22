@@ -1,9 +1,9 @@
 #ifndef IMU_H
 #define IMU_H
 #include "headfile.h"
+#include "FusionAhrs.h"
 
 
-extern FusionAhrs ahrs;
 extern float IMUdeltaTime;
 
 void IMU_update(void);

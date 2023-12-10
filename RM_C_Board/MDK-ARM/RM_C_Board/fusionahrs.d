@@ -55,4 +55,4 @@ rm_c_board/fusionahrs.o: ..\Core\Src\FusionAhrs.c \
   ..\Core\Inc\ist8310driver_middleWare.h ..\Core\Inc\ist8310driver.h \
   ..\Core\Inc\IST.h ..\Core\Inc\User_init.h ..\Core\Inc\FusionOffset.h \
   ..\Core\Inc\pid.h ..\Core\Inc\Motor_Speed_pid.h ..\Core\Inc\sweep.h \
-  ..\Core\Inc\gps.h
+  ..\Core\Inc\gps.h ..\Core\Inc\Task.h

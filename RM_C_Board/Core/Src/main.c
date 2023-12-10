@@ -54,7 +54,7 @@
 
 
 extern int stop_flag;//������ֹ��־
-
+extern FusionAhrs ahrs;
 
 
 /* USER CODE END PV */
@@ -62,7 +62,7 @@ extern int stop_flag;//������ֹ��־
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-
+void VOFA_Print();
 
 /* USER CODE END PFP */
 
@@ -117,8 +117,8 @@ int main(void)
 	clrStruct();
 
 	TaskAdd(Speed_set, 5); // 200Hz for wheel PID
-	IMUdeltaTime = 0.005, TaskPrintDeltaTime( TaskAdd(IMU_update, 5) ); // 200Hz for updating IMU and print delta time
-	TaskAdd(VOFA_Print, 10); // 100Hz Print to VOFA
+	IMUdeltaTime = 0.001; TaskAdd(IMU_update, 1); // 1000Hz for updating IMU and print delta time // TaskPrintDeltaTime( TaskAdd(IMU_update, 1) );
+	//TaskAdd(VOFA_Print, 10); // 100Hz Print to VOFA
 	TaskAdd(Joystick_motor_control, 20); // 50Hz
 	TaskAdd(ParseGpsBuffer, 100); // 10Hz
 

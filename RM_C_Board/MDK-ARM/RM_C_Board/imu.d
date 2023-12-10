@@ -1,7 +1,6 @@
 rm_c_board/imu.o: ..\Core\Src\IMU.c ..\Core\Inc\IMU.h \
   ..\Core\Inc\headfile.h C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
@@ -13,6 +12,7 @@ rm_c_board/imu.o: ..\Core\Src\IMU.c ..\Core\Inc\IMU.h \
   ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h \
   ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h \
   ..\Drivers\CMSIS\Include\core_cm4.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ..\Drivers\CMSIS\Include\cmsis_version.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   ..\Drivers\CMSIS\Include\cmsis_armclang.h \
@@ -54,4 +54,4 @@ rm_c_board/imu.o: ..\Core\Src\IMU.c ..\Core\Inc\IMU.h \
   ..\Core\Inc\FusionMath.h ..\Core\Inc\FusionCalibration.h \
   ..\Core\Inc\FusionCompass.h ..\Core\Inc\FusionOffset.h \
   ..\Core\Inc\pid.h ..\Core\Inc\Motor_Speed_pid.h ..\Core\Inc\sweep.h \
-  ..\Core\Inc\gps.h
+  ..\Core\Inc\gps.h ..\Core\Inc\Task.h
