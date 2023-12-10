@@ -3,13 +3,11 @@
 #include "headfile.h"
 
 
-extern float gyro[3];
-extern float accel[3];
-extern float temp;
+extern FusionAhrs ahrs;
+extern float IMUdeltaTime;
 
-void IMU_read(void);
+void IMU_update(void);
 void IMU_print(void);
 void IMU_Vofa_print(void);
-
 
 #endif

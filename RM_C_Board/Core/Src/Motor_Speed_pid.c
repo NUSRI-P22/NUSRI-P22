@@ -5,16 +5,16 @@
 #include "Motor_Speed_pid.h"
 
 PID_TypeDef motor_pid[4];
-float set_spdL;// rpm  ×óÂÖ½ÇËÙ¶È£¨×ªËÙ£©        1 rpm = pi/30 = 0.1047 £¨rad/s£©    1(rad/s) = 9.55(rpm)            //Pi rad = 180¶È    1 rad = 180/Pi ¶È    1 ¶È = Pi/180 rad
-float set_spdR;// rpm  ×óÂÖ½ÇËÙ¶È£¨×ªËÙ£©
+float set_spdL;// rpm  ï¿½ï¿½ï¿½Ö½ï¿½ï¿½Ù¶È£ï¿½×ªï¿½Ù£ï¿½        1 rpm = pi/30 = 0.1047 ï¿½ï¿½rad/sï¿½ï¿½    1(rad/s) = 9.55(rpm)            //Pi rad = 180ï¿½ï¿½    1 rad = 180/Pi ï¿½ï¿½    1 ï¿½ï¿½ = Pi/180 rad
+float set_spdR;// rpm  ï¿½ï¿½ï¿½Ö½ï¿½ï¿½Ù¶È£ï¿½×ªï¿½Ù£ï¿½
 
 float set_spdL1;
 float set_spdR1;
 
-float Vcx = 0;   //   m/s    ³µÁ¾×ªÍäÏßËÙ¶È    
-float Wc = 0;    //   rad/s  ³µÁ¾×ªÍä½ÇËÙ¶È
-float C = 0.5;     //   m      Öá¾à
-float r = 0.1;     //   m      ³µÂÖ°ë¾¶
+float Vcx = 0;   //   m/s    ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½    
+float Wc = 0;    //   rad/s  ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
+float C = 0.5;     //   m      ï¿½ï¿½ï¿½
+float r = 0.1;     //   m      ï¿½ï¿½ï¿½Ö°ë¾¶
 int flaggg = 0;
 int free_flag = 0;
 
@@ -27,7 +27,7 @@ float low_pass_filter(float value, float fc, float Ts)
 	
 	float b = fc * Ts;
   float alpha = b / (b + 1);
-  static float out_last = 0; //ÉÏÒ»´ÎÂË²¨Öµ
+  static float out_last = 0; //ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ë²ï¿½Öµ
   float out;
 
   static char fisrt_flag = 1;
@@ -114,16 +114,16 @@ void Speed_set()
 		if(free_flag == 0)
 		{
 			Motor_Speed_Calc();
-			motor_pid[0].target = set_spdL;    //×óÇ°
-			motor_pid[1].target = set_spdL;    //×óºó
-			motor_pid[2].target = -set_spdR;    //ÓÒÇ°
-			motor_pid[3].target = -set_spdR;    //ÓÒºó
+			motor_pid[0].target = set_spdL;    //ï¿½ï¿½Ç°
+			motor_pid[1].target = set_spdL;    //ï¿½ï¿½ï¿½
+			motor_pid[2].target = -set_spdR;    //ï¿½ï¿½Ç°
+			motor_pid[3].target = -set_spdR;    //ï¿½Òºï¿½
 			for(int i=0; i<4; i++)
 			{	 																							
-				motor_pid[i].f_cal_pid(&motor_pid[i],motor_chassis[i].speed_rpm);    //¸ù¾ÝÉè¶¨Öµ½øÐÐPID¼ÆËã¡£
+				motor_pid[i].f_cal_pid(&motor_pid[i],motor_chassis[i].speed_rpm);    //ï¿½ï¿½ï¿½ï¿½ï¿½è¶¨Öµï¿½ï¿½ï¿½ï¿½PIDï¿½ï¿½ï¿½ã¡£
 			}
 
-			CAN_cmd_chassis(motor_pid[0].output,   //½«PIDµÄ¼ÆËã½á¹ûÍ¨¹ýCAN·¢ËÍµ½µç»ú
+			CAN_cmd_chassis(motor_pid[0].output,   //ï¿½ï¿½PIDï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½CANï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½
 											motor_pid[1].output,
 											motor_pid[2].output,
 											motor_pid[3].output);

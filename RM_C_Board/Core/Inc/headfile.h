@@ -2,7 +2,6 @@
 #define HEADFILE_H
 #include "math.h"
 #include "stdio.h"
-#include <stdint.h>
 #include "stdbool.h"
 #include "string.h"
 #include "stdlib.h"
@@ -15,6 +14,7 @@
 #include "usart.h"
 #include "gpio.h"
 
+#include <stdint.h>
 #include <stdio.h>
 #include <stdarg.h>
 #include "string.h"
@@ -51,4 +51,6 @@
 #include "sweep.h"
 
 #include "gps.h"
+
+#include "Task.h" // For Multi-Task
 #endif

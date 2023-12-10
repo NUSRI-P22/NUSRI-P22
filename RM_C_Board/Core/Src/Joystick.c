@@ -17,7 +17,7 @@ int flagg = 0;
 void Joystick_motor_start(void)
 {
 
-	if(PS2_KEY == 13 && PS2_LY == 128 && PS2_RX == 127)  //Y¼ü¿ªÆôÒ£¿Ø ÂÌµÆÁÁ
+	if(PS2_KEY == 13 && PS2_LY == 128 && PS2_RX == 127)  //Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½
 	{
 
 		motor_shutdown = 0;
@@ -27,8 +27,8 @@ void Joystick_motor_start(void)
 //		PS2_Vibration(0x00,0xFF);
 //		HAL_Delay(100);
 	}
-	if(PS2_KEY == 16 || ((PS2_LY == 255) && (PS2_LX == 255) && (PS2_RX == 255) && (PS2_RY == 255)) || ((PS2_LY == 128) && (PS2_LX == 128) && (PS2_RX == 128) && (PS2_RY == 128)))  //X¼ü¹Ø±ÕÒ£¿Ø ºìµÆÁÁ  //·ÀÖ¹ÌØÊâÇé¿ö
-//if(PS2_KEY == 16|| ((PS2_LY == 128) && (PS2_LX == 128) && (PS2_RX == 128) && (PS2_RY == 128)))  //X¼ü¹Ø±ÕÒ£¿Ø ºìµÆÁÁ  //·ÀÖ¹ÌØÊâÇé¿ö
+	if(PS2_KEY == 16 || ((PS2_LY == 255) && (PS2_LX == 255) && (PS2_RX == 255) && (PS2_RY == 255)) || ((PS2_LY == 128) && (PS2_LX == 128) && (PS2_RX == 128) && (PS2_RY == 128)))  //Xï¿½ï¿½ï¿½Ø±ï¿½Ò£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½  //ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//if(PS2_KEY == 16|| ((PS2_LY == 128) && (PS2_LX == 128) && (PS2_RX == 128) && (PS2_RY == 128)))  //Xï¿½ï¿½ï¿½Ø±ï¿½Ò£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½  //ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 		motor_shutdown = 0;
 		motor_ready = 0;
@@ -41,7 +41,7 @@ void Joystick_motor_start(void)
 //		HAL_Delay(100);
 	}
  
-	if(PS2_KEY == 14)   //¼±Í£B¼ü
+	if(PS2_KEY == 14)   //ï¿½ï¿½Í£Bï¿½ï¿½
 	{
 		motor_shutdown = 1;
 		motor_ready = 1;
@@ -119,12 +119,10 @@ void Joystick_v_set(void)
 
 void Joystick_motor_control(void)
 {		
+		PS2_Receive(); // For PS2 Communication
 		Joystick_v_set();
 		Joystick_motor_start();
-	  
-		
-		
-		
+
 		if(motor_ready == 1)
 		{
 //			if(PS2_LY > 133 && PS2_LY < 135)
@@ -133,8 +131,7 @@ void Joystick_motor_control(void)
 //			}
 //			else
 //			{
-				
-				
+
 			if(PS2_LY <= 128)
 			{
 				Vcx = (float)(MAX_Speed - 0)/(float)(0-128)*(PS2_LY-128);
@@ -164,7 +161,6 @@ void Joystick_motor_control(void)
 //			}
 //			else
 //			{
-				
 				
 			if(PS2_LY <= 127)
 			{

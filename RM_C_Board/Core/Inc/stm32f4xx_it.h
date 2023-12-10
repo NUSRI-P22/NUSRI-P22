@@ -42,7 +42,6 @@
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-extern int flag;
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/

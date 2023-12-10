@@ -11,4 +11,6 @@ void Init_all()
 	PS2_SetInit();
 	ist8310_init();
 	while(BMI088_init());
+	FusionAhrsInitialise(&ahrs);
+	//nit_my_sweep();
 }

@@ -42,17 +42,6 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
-int flag = 0;
-uint8_t flag_1ms = 0;
-uint8_t flag_5ms = 0;
-uint8_t flag_10ms = 0;
-uint8_t flag_20ms = 0;
-uint8_t flag_50ms = 0;
-uint8_t flag_100ms = 0;
-uint8_t flag_200ms = 0;
-uint8_t flag_500ms = 0;
-uint8_t flag_1000ms = 0;
-
 int stop_flag = 0;
 
 /* USER CODE END PV */
@@ -229,7 +218,7 @@ void EXTI0_IRQHandler(void)
   /* USER CODE END EXTI0_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
   /* USER CODE BEGIN EXTI0_IRQn 1 */
-	//°´¼üÖÐ¶Ï·þÎñº¯Êý
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï·ï¿½ï¿½ï¿½ï¿½ï¿½
 	stop_flag = 1;
 	
 	
@@ -277,7 +266,7 @@ void TIM1_UP_TIM10_IRQHandler(void)
   HAL_TIM_IRQHandler(&htim1);
   HAL_TIM_IRQHandler(&htim10);
   /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 1 */
-//  ÔÚÕâÀïÎªÖÐ¶Ï·þÎñº¯Êý
+//  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Ð¶Ï·ï¿½ï¿½ï¿½ï¿½ï¿½
 
   /* USER CODE END TIM1_UP_TIM10_IRQn 1 */
 }
@@ -320,46 +309,11 @@ void TIM8_UP_TIM13_IRQHandler(void)
   /* USER CODE END TIM8_UP_TIM13_IRQn 0 */
   HAL_TIM_IRQHandler(&htim8);
   /* USER CODE BEGIN TIM8_UP_TIM13_IRQn 1 */
-	flag++;
 	
-	if(flag >= 65536) flag -= 65536;
-	
-	if(flag%1 == 0)
-	{
-		flag_1ms = 1;
-	}
-	if(flag%5 == 0)
-	{
-		flag_5ms = 1;
-	}
-	if(flag%10 == 0)
-	{
-		flag_10ms = 1;
-	}
-	if(flag%20 == 0)
-	{
-		flag_20ms = 1;
-	}
-	if(flag%50 == 0)
-	{
-		flag_50ms = 1;
-	}
-	if(flag%100 == 0)
-	{
-		flag_100ms = 1;
-	}
-	if(flag%200 == 0)
-	{
-		flag_200ms = 1;
-	}
-	if(flag%500 == 0)
-	{
-		flag_500ms = 1;
-	}
-	if(flag%1000 == 0)
-	{
-		flag_1000ms = 1;
-	}
+  // This function will be called every millisecond
+  // check Tasks everytime
+  TaskCheck();
+
   /* USER CODE END TIM8_UP_TIM13_IRQn 1 */
 }
 

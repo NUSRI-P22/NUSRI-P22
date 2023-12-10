@@ -16,35 +16,35 @@ typedef struct _PID_TypeDef
 {
 	PID_ID id;
 	
-	float target;							//Ä¿±êÖµ
+	float target;							//Ä¿ï¿½ï¿½Öµ
 	float lastNoneZeroTarget;
 	float kp;
 	float ki;
 	float kd;
 	
-	float   measure;					//²âÁ¿Öµ
-	float   err;							//Îó²î
-	float   last_err;      		//ÉÏ´ÎÎó²î
+	float   measure;					//ï¿½ï¿½ï¿½ï¿½Öµ
+	float   err;							//ï¿½ï¿½ï¿½
+	float   last_err;      		//ï¿½Ï´ï¿½ï¿½ï¿½ï¿½
 	
 	float pout;
 	float iout;
 	float dout;
 	
-	float output;						//±¾´ÎÊä³ö
-	float last_output;			//ÉÏ´ÎÊä³ö
-	float calculate_output; //pid¼ÆËãÊä³ö
+	float output;						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	float last_output;			//ï¿½Ï´ï¿½ï¿½ï¿½ï¿½
+	float calculate_output; //pidï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	float MaxOutput;				//Êä³öÏÞ·ù
-	float IntegralLimit;		//»ý·ÖÏÞ·ù
-	float DeadBand;			  //ËÀÇø£¨¾ø¶ÔÖµ£©
-	float ControlPeriod;		//¿ØÖÆÖÜÆÚ
-	float  Max_Err;					//×î´óÎó²î
+	float MaxOutput;				//ï¿½ï¿½ï¿½ï¿½Þ·ï¿½
+	float IntegralLimit;		//ï¿½ï¿½ï¿½ï¿½ï¿½Þ·ï¿½
+	float DeadBand;			  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½
+	float ControlPeriod;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	float  Max_Err;					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 					  uint32_t thistime;
 					uint32_t lasttime;
 						uint8_t dtime;	
 	
-	void (*f_param_init)(struct _PID_TypeDef *pid,  //PID²ÎÊý³õÊ¼»¯
+	void (*f_param_init)(struct _PID_TypeDef *pid,  //PIDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
 				   PID_ID id,
 				   uint16_t maxOutput,
 				   uint16_t integralLimit,
@@ -56,8 +56,8 @@ typedef struct _PID_TypeDef
 				   float ki,
 				   float kd);
 				   
-	void (*f_pid_reset)(struct _PID_TypeDef *pid, float kp,float ki, float kd);		//pidÈý¸ö²ÎÊýÐÞ¸Ä
-	float (*f_cal_pid)(struct _PID_TypeDef *pid, float measure);   //pid¼ÆËã
+	void (*f_pid_reset)(struct _PID_TypeDef *pid, float kp,float ki, float kd);		//pidï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½
+	float (*f_cal_pid)(struct _PID_TypeDef *pid, float measure);   //pidï¿½ï¿½ï¿½ï¿½
 }PID_TypeDef;
 
 void pid_init(PID_TypeDef* pid);

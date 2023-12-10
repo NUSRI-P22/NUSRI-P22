@@ -28,15 +28,15 @@
 //}; 
 
 FILE __stdout;       
-//¶¨Òå_sys_exit()ÒÔ±ÜÃâÊ¹ÓÃ°ëÖ÷»úÄ£Ê½    
+//ï¿½ï¿½ï¿½ï¿½_sys_exit()ï¿½Ô±ï¿½ï¿½ï¿½Ê¹ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½    
 void _sys_exit(int x) 
 { 
 	x = x; 
 } 
-////ÖØ¶¨Òåfputcº¯Êý 
+////ï¿½Ø¶ï¿½ï¿½ï¿½fputcï¿½ï¿½ï¿½ï¿½ 
 int fputc(int ch, FILE *f)
 {      
-	while((USART1->SR&0X40)==0); //Ê¹ÓÃ´®¿Ú1   
+	while((USART1->SR&0X40)==0); //Ê¹ï¿½Ã´ï¿½ï¿½ï¿½1   
 	USART1->DR = (u8) ch;      
 	return ch;
 }
@@ -47,9 +47,9 @@ int fputc(int ch, FILE *f)
 Function: Serial port 1 sends data
 Input   : The data to send
 Output  : none
-º¯Êý¹¦ÄÜ£º´®¿Ú1·¢ËÍÊý¾Ý
-Èë¿Ú²ÎÊý£ºÒª·¢ËÍµÄÊý¾Ý
-·µ»Ø  Öµ£ºÎÞ
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½  Öµï¿½ï¿½ï¿½ï¿½
 **************************************************************************/
 void usart1_send(u8 data)
 {
@@ -57,8 +57,8 @@ void usart1_send(u8 data)
 	while((USART1->SR&0x40)==0);	
 }
 
-u8 Usart1_Receive_buf[1];          //´®¿Ú1½ÓÊÕÖÐ¶ÏÊý¾Ý´æ·ÅµÄ»º³åÇø
-u8 Usart6_Receive_buf[1];          //´®¿Ú5½ÓÊÕÖÐ¶ÏÊý¾Ý´æ·ÅµÄ»º³åÇø
+u8 Usart1_Receive_buf[1];          //ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Ý´ï¿½ÅµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½
+u8 Usart6_Receive_buf[1];          //ï¿½ï¿½ï¿½ï¿½5ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Ý´ï¿½ÅµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½
 
 /* USER CODE END 0 */
 
@@ -121,7 +121,7 @@ void MX_USART6_UART_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN USART6_Init 2 */
-	HAL_UART_Receive_IT(&huart6,Usart6_Receive_buf,sizeof(Usart6_Receive_buf)); //´ò¿ª´®¿Ú5½ÓÊÕÖÐ¶Ï
+	HAL_UART_Receive_IT(&huart6,Usart6_Receive_buf,sizeof(Usart6_Receive_buf)); //ï¿½ò¿ª´ï¿½ï¿½ï¿½5ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
   /* USER CODE END USART6_Init 2 */
 
 }
@@ -287,10 +287,10 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 
 /* USER CODE BEGIN 1 */
 _SaveData Save_Data;
-char USART_RX_BUF[USART_REC_LEN];     //½ÓÊÕ»º³å,×î´óUSART_REC_LEN¸ö×Ö½Ú.
+char USART_RX_BUF[USART_REC_LEN];     //ï¿½ï¿½ï¿½Õ»ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½USART_REC_LENï¿½ï¿½ï¿½Ö½ï¿½.
 uint16_t point1 ;
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef*huart) //½ÓÊÕ»Øµ÷º¯Êý
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef*huart) //ï¿½ï¿½ï¿½Õ»Øµï¿½ï¿½ï¿½ï¿½ï¿½
 {
 	u8 Res;
 	if(huart -> Instance == USART6)
@@ -300,31 +300,31 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef*huart) //½ÓÊÕ»Øµ÷º¯Êý
 			if(Res == '$') point1 = 0;	
 		
 			USART_RX_BUF[point1++] = Res;
-			if(USART_RX_BUF[0] == '$' && USART_RX_BUF[4] == 'M' && USART_RX_BUF[5] == 'C')			//È·¶¨ÊÇ·ñÊÕµ½"GPRMC/GNRMC"ÕâÒ»Ö¡Êý¾Ý
+			if(USART_RX_BUF[0] == '$' && USART_RX_BUF[4] == 'M' && USART_RX_BUF[5] == 'C')			//È·ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Õµï¿½"GPRMC/GNRMC"ï¿½ï¿½Ò»Ö¡ï¿½ï¿½ï¿½ï¿½
 			{
 					if(Res == '\n')									   
 					{
-							memset(Save_Data.GPS_Buffer, 0, GPS_Buffer_Length);      //Çå¿Õ
-							memcpy(Save_Data.GPS_Buffer, USART_RX_BUF, point1); 	//±£´æÊý¾Ý
+							memset(Save_Data.GPS_Buffer, 0, GPS_Buffer_Length);      //ï¿½ï¿½ï¿½
+							memcpy(Save_Data.GPS_Buffer, USART_RX_BUF, point1); 	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 							Save_Data.isGetData = true;
 							point1 = 0;
-							memset(USART_RX_BUF, 0, USART_REC_LEN);      //Çå¿Õ				
+							memset(USART_RX_BUF, 0, USART_REC_LEN);      //ï¿½ï¿½ï¿½				
 					}	
 					if(point1 >= USART_REC_LEN) point1 = USART_REC_LEN;
 			}
-			HAL_UART_Receive_IT(&huart6,Usart6_Receive_buf,sizeof(Usart6_Receive_buf));//´®¿Ú5»Øµ÷º¯ÊýÖ´ÐÐÍê±ÏÖ®ºó£¬ÐèÒªÔÙ´Î¿ªÆô½ÓÊÕÖÐ¶ÏµÈ´ýÏÂÒ»´Î½ÓÊÕÖÐ¶ÏµÄ·¢Éú
+			HAL_UART_Receive_IT(&huart6,Usart6_Receive_buf,sizeof(Usart6_Receive_buf));//ï¿½ï¿½ï¿½ï¿½5ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½Òªï¿½Ù´Î¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ÏµÈ´ï¿½ï¿½ï¿½Ò»ï¿½Î½ï¿½ï¿½ï¿½ï¿½Ð¶ÏµÄ·ï¿½ï¿½ï¿½
 	}
 	
 	else if(huart -> Instance == USART1)
 	{
-			HAL_UART_Receive_IT(&huart1,Usart1_Receive_buf,sizeof(Usart1_Receive_buf));//´®¿Ú5»Øµ÷º¯ÊýÖ´ÐÐÍê±ÏÖ®ºó£¬ÐèÒªÔÙ´Î¿ªÆô½ÓÊÕÖÐ¶ÏµÈ´ýÏÂÒ»´Î½ÓÊÕÖÐ¶ÏµÄ·¢Éú
+			HAL_UART_Receive_IT(&huart1,Usart1_Receive_buf,sizeof(Usart1_Receive_buf));//ï¿½ï¿½ï¿½ï¿½5ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½Òªï¿½Ù´Î¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ÏµÈ´ï¿½ï¿½ï¿½Ò»ï¿½Î½ï¿½ï¿½ï¿½ï¿½Ð¶ÏµÄ·ï¿½ï¿½ï¿½
 
 	}
 	  	
 			
 }
 
-u8 Hand(char *a)                   // ´®¿ÚÃüÁîÊ¶±ðº¯Êý
+u8 Hand(char *a)                   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½ï¿½
 { 
     if(strstr(USART_RX_BUF,a)!=NULL)
 	    return 1;
@@ -332,9 +332,9 @@ u8 Hand(char *a)                   // ´®¿ÚÃüÁîÊ¶±ðº¯Êý
 		return 0;
 }
 
-void CLR_Buf(void)                           // ´®¿Ú»º´æÇåÀí
+void CLR_Buf(void)                           // ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 {
-	memset(USART_RX_BUF, 0, USART_REC_LEN);      //Çå¿Õ
+	memset(USART_RX_BUF, 0, USART_REC_LEN);      //ï¿½ï¿½ï¿½
   point1 = 0;                    
 }
 
@@ -343,7 +343,7 @@ void clrStruct()
 	Save_Data.isGetData = false;
 	Save_Data.isParseData = false;
 	Save_Data.isUsefull = false;
-	memset(Save_Data.GPS_Buffer, 0, GPS_Buffer_Length);      //Çå¿Õ
+	memset(Save_Data.GPS_Buffer, 0, GPS_Buffer_Length);      //ï¿½ï¿½ï¿½
 	memset(Save_Data.UTCTime, 0, UTCTime_Length);
 	memset(Save_Data.latitude, 0, latitude_Length);
 	memset(Save_Data.N_S, 0, N_S_Length);

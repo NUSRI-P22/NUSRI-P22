@@ -5,15 +5,19 @@
 #include "IMU.h"
 #include <math.h>
 
-float gyro[3],accel[3],temp;
+FusionAhrs ahrs;
+float IMUdeltaTime = 0.005; // default 200Hz
+static float gyro[3], accel[3], temp, g = 9.975; // For SuZhou, JiangSu, China
 
-void IMU_read()
+void IMU_update()
 {
-	static const float k1 = 57.295791;
-	static const float k2 = 9.793;
-	BMI088_read(gyro,accel,&temp);
-	gyro[0] *= k1; gyro[1] *= k1; gyro[2] *= k1;
-	accel[0] /= k2; accel[1] /= k2; accel[2] /= k2;
+	BMI088_read(gyro, accel, &temp); // read IMU Date
+
+	const FusionVector gyroscope = {{FusionRadiansToDegrees(gyro[0]), FusionRadiansToDegrees(gyro[1]), FusionRadiansToDegrees(gyro[2])}}; // unit: dps
+	const FusionVector accelerometer = FusionVectorMultiplyScalar((FusionVector){{accel[0], accel[1], accel[2]}}, 1/g); // unit: g
+	//FusionAhrsUpdateNoMagnetometer(&ahrs, gyroscope, accelerometer, IMUdeltaTime);
+	const FusionVector magnetometer = {{IST8310data[0],IST8310data[1],IST8310data[2]}};
+	FusionAhrsUpdate(&ahrs, gyroscope, accelerometer, magnetometer, IMUdeltaTime); // AHRS Calculation
 }
 
 void IMU_print()

@@ -4,8 +4,8 @@
   * @file       IST8310driver.c/h
   * @brief      ist8310 is a 3-axis digital magnetometer, the file includes initialization function,
   *             read magnetic field strength data function.
-  *             IST8310ÊÇÒ»¿îÈýÖáÊý×Ö´ÅÁ¦¼Æ£¬±¾ÎÄ¼þ°üÀ¨³õÊ¼»¯º¯Êý£¬¶ÁÈ¡´Å³¡Êý¾Ýº¯Êý¡£
-  * @note       IST8310 only support I2C. IST8310Ö»Ö§³ÖI2C¡£
+  *             IST8310ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½Å³ï¿½ï¿½ï¿½ï¿½Ýºï¿½ï¿½ï¿½ï¿½ï¿½
+  * @note       IST8310 only support I2C. IST8310Ö»Ö§ï¿½ï¿½I2Cï¿½ï¿½
   * @history
   *  Version    Date            Author          Modification
   *  V1.0.0     Dec-26-2018     RM              1. done
@@ -21,21 +21,21 @@
 #include "ist8310driver.h"
 
 
-#define MAG_SEN 0.3f //raw int16 data change to uT unit. Ô­Ê¼ÕûÐÍÊý¾Ý±ä³É µ¥Î»ut
+#define MAG_SEN 0.3f //raw int16 data change to uT unit. Ô­Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ ï¿½ï¿½Î»ut
 
 #define IST8310_WHO_AM_I 0x00       //ist8310 "who am I " 
 #define IST8310_WHO_AM_I_VALUE 0x10 //device ID
 
 #define IST8310_WRITE_REG_NUM 4 
 
-//the first column:the registers of IST8310. µÚÒ»ÁÐ:IST8310µÄ¼Ä´æÆ÷
-//the second column: the value to be writed to the registers.µÚ¶þÁÐ:ÐèÒªÐ´ÈëµÄ¼Ä´æÆ÷Öµ
-//the third column: return error value.µÚÈýÁÐ:·µ»ØµÄ´íÎóÂë
+//the first column:the registers of IST8310. ï¿½ï¿½Ò»ï¿½ï¿½:IST8310ï¿½Ä¼Ä´ï¿½ï¿½ï¿½
+//the second column: the value to be writed to the registers.ï¿½Ú¶ï¿½ï¿½ï¿½:ï¿½ï¿½ÒªÐ´ï¿½ï¿½Ä¼Ä´ï¿½ï¿½ï¿½Öµ
+//the third column: return error value.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ØµÄ´ï¿½ï¿½ï¿½ï¿½ï¿½
 static const uint8_t ist8310_write_reg_data_error[IST8310_WRITE_REG_NUM][3] ={
-        {0x0B, 0x08, 0x01},     //enalbe interrupt  and low pin polarity.¿ªÆôÖÐ¶Ï£¬²¢ÇÒÉèÖÃµÍµçÆ½
-        {0x41, 0x09, 0x02},     //average 2 times.Æ½¾ù²ÉÑùÁ½´Î
-        {0x42, 0xC0, 0x03},     //must be 0xC0. ±ØÐëÊÇ0xC0
-        {0x0A, 0x0B, 0x04}};    //200Hz output rate.200HzÊä³öÆµÂÊ
+        {0x0B, 0x08, 0x01},     //enalbe interrupt  and low pin polarity.ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÃµÍµï¿½Æ½
+        {0x41, 0x09, 0x02},     //average 2 times.Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        {0x42, 0xC0, 0x03},     //must be 0xC0. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0xC0
+        {0x0A, 0x0B, 0x04}};    //200Hz output rate.200Hzï¿½ï¿½ï¿½Æµï¿½ï¿½
 
 
 
@@ -45,7 +45,7 @@ static const uint8_t ist8310_write_reg_data_error[IST8310_WRITE_REG_NUM][3] ={
   * @retval         error value
   */
 /**
-  * @brief          ³õÊ¼»¯IST8310
+  * @brief          ï¿½ï¿½Ê¼ï¿½ï¿½IST8310
   * @param[in]      none
   * @retval         error value
   */
@@ -92,9 +92,9 @@ uint8_t ist8310_init(void)
   * @retval         none
   */
 /**
-  * @brief          Èç¹ûÒÑ¾­Í¨¹ýI2CµÄDMA·½Ê½¶ÁÈ¡µ½ÁË´ÓSTAT1µ½DATAZLµÄÊý¾Ý£¬¿ÉÒÔÊ¹ÓÃÕâ¸öº¯Êý½øÐÐ´¦Àí
-  * @param[in]      status_buf:Êý¾ÝÖ¸Õë,´ÓSTAT1(0x02) ¼Ä´æÆ÷µ½ DATAZL(0x08)¼Ä´æÆ÷ 
-  * @param[out]     ist8310_real_data:ist8310µÄÊý¾Ý½á¹¹
+  * @brief          ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½Í¨ï¿½ï¿½I2Cï¿½ï¿½DMAï¿½ï¿½Ê½ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ë´ï¿½STAT1ï¿½ï¿½DATAZLï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½
+  * @param[in]      status_buf:ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½,ï¿½ï¿½STAT1(0x02) ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ DATAZL(0x08)ï¿½Ä´ï¿½ï¿½ï¿½ 
+  * @param[out]     ist8310_real_data:ist8310ï¿½ï¿½ï¿½ï¿½ï¿½Ý½á¹¹
   * @retval         none
   */
 void ist8310_read_over(uint8_t *status_buf, ist8310_real_data_t *ist8310_real_data)
@@ -124,8 +124,8 @@ void ist8310_read_over(uint8_t *status_buf, ist8310_real_data_t *ist8310_real_da
   * @retval         none
   */
 /**
-  * @brief          Í¨¹ý¶ÁÈ¡´Å³¡Êý¾Ý
-  * @param[out]     ´Å³¡Êý×é
+  * @brief          Í¨ï¿½ï¿½ï¿½ï¿½È¡ï¿½Å³ï¿½ï¿½ï¿½ï¿½ï¿½
+  * @param[out]     ï¿½Å³ï¿½ï¿½ï¿½ï¿½ï¿½
   * @retval         none
   */
 void ist8310_read_mag(fp32 mag[3])

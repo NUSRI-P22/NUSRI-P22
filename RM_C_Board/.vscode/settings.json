@@ -11,7 +11,17 @@
         "stm32f4xx_hal_def.h": "c",
         "headfile.h": "c",
         "stm32f4xx.h": "c",
-        "user_delay.h": "c"
-    },
-    "C_Cpp.errorSquiggles": "disabled"
+        "user_delay.h": "c",
+        "stm32f4xx_hal_can.h": "c",
+        "math.h": "c",
+        "Task.h": "c",
+        "__config": "c",
+        "fusion.h": "c",
+        "fusionahrs.h": "c",
+        "imu.h": "c",
+        "user_init.h": "c",
+        "cstdlib": "c",
+        "variant": "c",
+        "i2c.h": "c"
+    }
 }

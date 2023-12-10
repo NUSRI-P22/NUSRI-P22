@@ -51,15 +51,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-extern uint8_t flag_1ms;//����ѭ����־
-extern uint8_t flag_5ms;
-extern uint8_t flag_10ms;
-extern uint8_t flag_20ms;
-extern uint8_t flag_50ms;
-extern uint8_t flag_100ms;
-extern uint8_t flag_200ms;
-extern uint8_t flag_500ms;
-extern uint8_t flag_1000ms;
+
 
 extern int stop_flag;//������ֹ��־
 
@@ -123,12 +115,13 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	Init_all();
 	clrStruct();
-	double yaw;
-	double acc;
-//	init_my_sweep();
-	FusionAhrs ahrs;
-	FusionAhrsInitialise(&ahrs);
-	
+
+	TaskAdd(Speed_set, 5); // 200Hz for wheel PID
+	IMUdeltaTime = 0.005, TaskPrintDeltaTime( TaskAdd(IMU_update, 5) ); // 200Hz for updating IMU and print delta time
+	TaskAdd(VOFA_Print, 10); // 100Hz Print to VOFA
+	TaskAdd(Joystick_motor_control, 20); // 50Hz
+	TaskAdd(ParseGpsBuffer, 100); // 10Hz
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -151,107 +144,16 @@ int main(void)
 
 //	  CAN_cmd_chassis(1500,0,0,0);	1500������Ӧ10000rpm
 
-
 		if(stop_flag !=0)  //����  ����KEY��ֹͣ����
-			
 		{
-//			led_red_blink();
+			// led_red_blink();
 			
 		}
 		else
 		{
-//			led_green_start();
-			
-		if(flag_1ms == 1)
-		{
-				
-			flag_1ms = 0;
-		}
-		if(flag_5ms == 1)
-		{
-				Speed_set();
-//			run_my_sweep();
-				
-				static int time = 0;
-				static int dtime = 0;
-				dtime = flag - time;
-				const FusionVector gyroscope = {{gyro[0], gyro[1], gyro[2]}}; // unit: dps
-				const FusionVector accelerometer = {{accel[0], accel[1], accel[2]}}; // unit: g
-				const FusionVector magnetometer = {{IST8310data[0],IST8310data[1],IST8310data[2]}};
-//				FusionAhrsUpdateNoMagnetometer(&ahrs, gyroscope, accelerometer, 0.005f);
-				FusionAhrsUpdate(&ahrs, gyroscope, accelerometer, magnetometer, 0.005f);
-				time = flag;
-				const FusionEuler euler = FusionQuaternionToEuler(FusionAhrsGetQuaternion(&ahrs));
-//			const FusionVector EarthAcc = FusionAhrsGetEarthAcceleration(&ahrs);
-				const FusionVector LinearAcc = FusionAhrsGetLinearAcceleration(&ahrs);
-//			usart_printf("Yaw %0.1f\n", euler.angle.yaw);
-				yaw = euler.angle.yaw;
-//				acc = EarthAcc.axis.y;
-				acc = LinearAcc.axis.x;
-			//usart_printf("%0.3f,%0.3f,%0.3f\n", euler.angle.roll, euler.angle.pitch, euler.angle.yaw);
-//					PS2_Receive();
-			printf("%lf,%lf,%d,%d,%d,%d,%0.1f,%f,%d\n",
-							Convert_to_degrees(Save_Data.latitude),
-							Convert_to_degrees(Save_Data.longitude),
-							motor_chassis[0].speed_rpm,
-							motor_chassis[1].speed_rpm,
-							-motor_chassis[2].speed_rpm,
-							-motor_chassis[3].speed_rpm,
-							yaw,
-							acc,
-							dtime);  //0��ǰ 1��� 2�Һ� 3��ǰ
-			flag_5ms = 0;
-		}
-		if(flag_10ms == 1)
-		{
-		
-				IMU_read();
-			flag_10ms = 0;
-		}
-		if(flag_20ms == 1) 
-		{
-
- 				//PS2_Receive();
-				Joystick_motor_control();
-				flag_20ms = 0;
-		}
-		if(flag_50ms == 1)
-		{			 			
-//			speed_print();
-//			printf("123");
-
-			   
-
-			flag_50ms = 0;
-		}
-		if(flag_100ms == 1)
-		{
-			ParseGpsBuffer();
-			
-//			PrintGpsBuffer();
-			
-			flag_100ms = 0;
-		}
-		if(flag_200ms == 1)
-		{
-					
-			flag_200ms = 0;
-		}
-		if(flag_500ms == 1)
-		{
-		
-// 		PS2_Vofa_print();
-//		IMU_print();
-//		IST_print();
-//   		Motor_print();
-//  			Motor_Vofa_print();
-			flag_500ms = 0;
-		}
-		if(flag_1000ms == 1)
-		{
-			    
-			flag_1000ms = 0;
-		}
+			//led_green_start();
+			//run_my_sweep();
+			TaskRun();
 		}
   }
 
@@ -304,6 +206,25 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+void VOFA_Print(){
+	const FusionEuler euler = FusionQuaternionToEuler(FusionAhrsGetQuaternion(&ahrs));
+	const FusionVector LinearAcc = FusionAhrsGetLinearAcceleration(&ahrs);
+	// const FusionVector EarthAcc = FusionAhrsGetEarthAcceleration(&ahrs);
+
+	// Print to VOFA+
+	usart_printf("%lf,%lf,%d,%d,%d,%d,%0.1f,%f\n",
+			Convert_to_degrees(Save_Data.latitude),
+			Convert_to_degrees(Save_Data.longitude),
+			motor_chassis[0].speed_rpm,
+			motor_chassis[1].speed_rpm,
+			-motor_chassis[2].speed_rpm,
+			-motor_chassis[3].speed_rpm,
+			euler.angle.yaw,
+			LinearAcc.axis.x);
+	// usart_printf("%0.3f,%0.3f,%0.3f\n", euler.angle.roll, euler.angle.pitch, euler.angle.yaw);
+	// PrintGpsBuffer();
+}
 
 /* USER CODE END 4 */
 
