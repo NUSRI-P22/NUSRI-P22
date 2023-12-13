@@ -200,7 +200,7 @@ void VOFA_Print(){
 	// const FusionVector EarthAcc = FusionAhrsGetEarthAcceleration(&ahrs);
 
 	// Print to VOFA+
-	usart_printf("%lf,%lf,%d,%d,%d,%d,%0.1f,%f\n",
+	usart_printf("%lf,%lf,%d,%d,%d,%d,%0.1f,%f,%f,%f\n",
 			Convert_to_degrees(Save_Data.latitude),
 			Convert_to_degrees(Save_Data.longitude),
 			motor_chassis[0].speed_rpm,
@@ -208,7 +208,7 @@ void VOFA_Print(){
 			-motor_chassis[2].speed_rpm,
 			-motor_chassis[3].speed_rpm,
 			euler.angle.yaw,
-			LinearAcc.axis.x);
+			LinearAcc.axis.x,Save_Data.X,Save_Data.Y);
 	// usart_printf("%0.3f,%0.3f,%0.3f\n", euler.angle.roll, euler.angle.pitch, euler.angle.yaw);
 	// PrintGpsBuffer();
 }

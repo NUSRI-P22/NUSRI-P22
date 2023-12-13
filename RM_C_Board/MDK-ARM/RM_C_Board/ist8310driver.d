@@ -50,10 +50,10 @@ rm_c_board/ist8310driver.o: ..\Core\Src\ist8310driver.c \
   ..\Core\Inc\Joystick.h ..\Core\Inc\BMI088driver.h \
   ..\Core\Inc\struct_typedef.h ..\Core\Inc\BMI088reg.h \
   ..\Core\Inc\BMI088Middleware.h ..\Core\Inc\IMU.h \
-  ..\Core\Inc\FusionAhrs.h ..\Core\Inc\Fusion.h ..\Core\Inc\FusionAxes.h \
-  ..\Core\Inc\FusionMath.h ..\Core\Inc\FusionCalibration.h \
-  ..\Core\Inc\FusionCompass.h ..\Core\Inc\FusionOffset.h \
-  ..\Core\Inc\ist8310driver_middleWare.h ..\Core\Inc\IST.h \
-  ..\Core\Inc\User_init.h ..\Core\Inc\pid.h \
+  ..\Core\Inc\FusionAhrs.h ..\Core\Inc\FusionConvention.h \
+  ..\Core\Inc\FusionMath.h ..\Core\Inc\ist8310driver_middleWare.h \
+  ..\Core\Inc\IST.h ..\Core\Inc\User_init.h ..\Core\Inc\FusionCompass.h \
+  ..\Core\Inc\FusionOffset.h ..\Core\Inc\FusionCalibration.h \
+  ..\Core\Inc\Fusion.h ..\Core\Inc\FusionAxes.h ..\Core\Inc\pid.h \
   ..\Core\Inc\Motor_Speed_pid.h ..\Core\Inc\sweep.h ..\Core\Inc\gps.h \
   ..\Core\Inc\Task.h

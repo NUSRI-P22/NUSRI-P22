@@ -100,7 +100,7 @@ void Speed_set()
 	{
 		if(!motor_shutdown)
 		{
-			if(free_flag = PS2_Is_Center()) Set_free();
+			if(PS2_Is_Center()) Set_free(), free_flag = true;
 		}
 		
 		if(free_flag == 0)
