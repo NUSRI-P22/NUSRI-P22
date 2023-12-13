@@ -10,8 +10,8 @@ float Max_speed[max_count] = {1,2,3};
 int speed_count = 0;
 
 
-int motor_ready = 0;
-int motor_shutdown = 0;
+bool motor_ready = false;
+bool motor_shutdown = false;
 float MAX_Speed = 0;
 int flagg = 0;
 void Joystick_motor_start(void)
@@ -20,9 +20,9 @@ void Joystick_motor_start(void)
 	if(PS2_KEY == 13 && PS2_LY == 128 && PS2_RX == 127)  //Y������ң�� �̵���
 	{
 
-		motor_shutdown = 0;
+		motor_shutdown = false;
 		led_green_start();
-		motor_ready = 1;
+		motor_ready = true;
 		free_flag = 0;
 //		PS2_Vibration(0x00,0xFF);
 //		HAL_Delay(100);
@@ -30,8 +30,8 @@ void Joystick_motor_start(void)
 	if(PS2_KEY == 16 || ((PS2_LY == 255) && (PS2_LX == 255) && (PS2_RX == 255) && (PS2_RY == 255)) || ((PS2_LY == 128) && (PS2_LX == 128) && (PS2_RX == 128) && (PS2_RY == 128)))  //X���ر�ң�� �����  //��ֹ�������
 //if(PS2_KEY == 16|| ((PS2_LY == 128) && (PS2_LX == 128) && (PS2_RX == 128) && (PS2_RY == 128)))  //X���ر�ң�� �����  //��ֹ�������
 	{
-		motor_shutdown = 0;
-		motor_ready = 0;
+		motor_shutdown = false;
+		motor_ready = false;
 
 		led_red_start();
 		
@@ -41,10 +41,10 @@ void Joystick_motor_start(void)
 //		HAL_Delay(100);
 	}
  
-	if(PS2_KEY == 14)   //��ͣB��
+	if(PS2_KEY == 14)   // B Button Pressed
 	{
-		motor_shutdown = 1;
-		motor_ready = 1;
+		motor_shutdown = true;
+		motor_ready = true;
 		free_flag = 0;
 		speed_count = 0;
 		led_red_start();
@@ -123,7 +123,7 @@ void Joystick_motor_control(void)
 		Joystick_v_set();
 		Joystick_motor_start();
 
-		if(motor_ready == 1)
+		if(motor_ready)
 		{
 //			if(PS2_LY > 133 && PS2_LY < 135)
 //			{
@@ -153,7 +153,7 @@ void Joystick_motor_control(void)
 		}
 //-----------------------------------------------------------------------------	
 		
-		if(motor_ready == 1)
+		if(motor_ready)
 		{
 //			if(PS2_RX > 133 && PS2_RX < 135)
 //			{

@@ -1,15 +1,15 @@
 //ps2.c
 //2023.10.20
 //by gjx
-//MOSI½ÓCMD MISO½ÓDAT
+//MOSIï¿½ï¿½CMD MISOï¿½ï¿½DAT
 #include "ps2.h"
 
 #define DELAY_TIME HAL_Delay_us(10);
 
 int PS2_LX, PS2_LY, PS2_RX, PS2_RY, PS2_KEY; //
 uint16_t Handkey;
-uint8_t Comd[2] = {0x01, 0x42};											  //¿ªÊ¼ÃüÁî¡£ÇëÇóÊý¾Ý
-uint8_t Data[9] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}; //Êý¾Ý´æ´¢Êý×é
+uint8_t Comd[2] = {0x01, 0x42};											  //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½î¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+uint8_t Data[9] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}; //ï¿½ï¿½ï¿½Ý´æ´¢ï¿½ï¿½ï¿½ï¿½
 uint16_t MASK[] = {
 	PSB_SELECT,
 	PSB_L3,
@@ -26,9 +26,9 @@ uint16_t MASK[] = {
 	PSB_GREEN,
 	PSB_RED,
 	PSB_BLUE,
-	PSB_PINK}; //°´¼üÖµÓë°´¼üÃ÷
+	PSB_PINK}; //ï¿½ï¿½ï¿½ï¿½Öµï¿½ë°´ï¿½ï¿½ï¿½ï¿½
 
-//ÏòÊÖ±ú·¢ËÍÃüÁî
+//ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void PS2_Cmd(uint8_t CMD)
 {
 	volatile uint16_t ref = 0x01;
@@ -37,12 +37,12 @@ void PS2_Cmd(uint8_t CMD)
 	{
 		if (ref & CMD)
 		{
-			DO_H; //Êä³öÒ»Î»¿ØÖÆÎ»
+			DO_H; //ï¿½ï¿½ï¿½Ò»Î»ï¿½ï¿½ï¿½ï¿½Î»
 		}
 		else
 			DO_L;
 
-		CLK_H; //Ê±ÖÓÀ­¸ß
+		CLK_H; //Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		DELAY_TIME;
 		CLK_L;
 		DELAY_TIME;
@@ -53,14 +53,14 @@ void PS2_Cmd(uint8_t CMD)
 	HAL_Delay_us(16);
 }
 
-//ÅÐ¶ÏÊÇ·ñÎªºìµÆÄ£Ê½  0x41=Ä£ÄâÂÌµÆ  0x73=Ä£ÄâºìµÆ
-//·µ»ØÖµ£»0£¬ºìµÆÄ£Ê½
-//		  ÆäËû£¬ÆäËûÄ£Ê½
+//ï¿½Ð¶ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½ï¿½Ä£Ê½  0x41=Ä£ï¿½ï¿½ï¿½Ìµï¿½  0x73=Ä£ï¿½ï¿½ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½
+//		  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½
 uint8_t PS2_RedLight(void)
 {
 	CS_L;
-	PS2_Cmd(Comd[0]); //¿ªÊ¼ÃüÁî
-	PS2_Cmd(Comd[1]); //ÇëÇóÊý¾Ý
+	PS2_Cmd(Comd[0]); //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
+	PS2_Cmd(Comd[1]); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	CS_H;
 	if (Data[1] == 0X73)
 		return 0;
@@ -68,15 +68,15 @@ uint8_t PS2_RedLight(void)
 		return 1;
 }
 
-//¶ÁÈ¡ÊÖ±úÊý¾Ý
+//ï¿½ï¿½È¡ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½
 void PS2_ReadData(void)
 {
 	volatile uint8_t byte = 0;
 	volatile uint16_t ref = 0x01;
 	CS_L;
-	PS2_Cmd(Comd[0]);				 //¿ªÊ¼ÃüÁî
-	PS2_Cmd(Comd[1]);				 //ÇëÇóÊý¾Ý
-	for (byte = 2; byte < 9; byte++) //¿ªÊ¼½ÓÊÜÊý¾Ý
+	PS2_Cmd(Comd[0]);				 //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
+	PS2_Cmd(Comd[1]);				 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	for (byte = 2; byte < 9; byte++) //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 		for (ref = 0x01; ref < 0x100; ref <<= 1)
 		{
@@ -93,8 +93,8 @@ void PS2_ReadData(void)
 	CS_H;
 }
 
-//¶Ô¶Á³öÀ´µÄPS2µÄÊý¾Ý½øÐÐ´¦Àí      Ö»´¦ÀíÁË°´¼ü²¿·Ö         Ä¬ÈÏÊý¾ÝÊÇºìµÆÄ£Ê½  Ö»ÓÐÒ»¸ö°´¼ü°´ÏÂÊ±
-//°´ÏÂÎª0£¬ Î´°´ÏÂÎª1
+//ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½PS2ï¿½ï¿½ï¿½ï¿½ï¿½Ý½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½      Ö»ï¿½ï¿½ï¿½ï¿½ï¿½Ë°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½         Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Çºï¿½ï¿½Ä£Ê½  Ö»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±
+//ï¿½ï¿½ï¿½ï¿½Îª0ï¿½ï¿½ Î´ï¿½ï¿½ï¿½ï¿½Îª1
 uint8_t PS2_DataKey()
 {
 	uint8_t index;
@@ -102,22 +102,22 @@ uint8_t PS2_DataKey()
 	PS2_ClearData();
 	PS2_ReadData();
 
-	Handkey = (Data[4] << 8) | Data[3]; //ÕâÊÇ16¸ö°´¼ü  °´ÏÂÎª0£¬ Î´°´ÏÂÎª1
+	Handkey = (Data[4] << 8) | Data[3]; //ï¿½ï¿½ï¿½ï¿½16ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½Îª0ï¿½ï¿½ Î´ï¿½ï¿½ï¿½ï¿½Îª1
 	for (index = 0; index < 16; index++)
 	{
 		if ((Handkey & (1 << (MASK[index] - 1))) == 0)
 			return index + 1;
 	}
-	return 0; //Ã»ÓÐÈÎºÎ°´¼ü°´ÏÂ
+	return 0; //Ã»ï¿½ï¿½ï¿½ÎºÎ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
-//µÃµ½Ò»¸öÒ¡¸ËµÄÄ£ÄâÁ¿	 ·¶Î§0~256
+//ï¿½Ãµï¿½Ò»ï¿½ï¿½Ò¡ï¿½Ëµï¿½Ä£ï¿½ï¿½ï¿½ï¿½	 ï¿½ï¿½Î§0~256
 uint8_t PS2_AnologData(uint8_t button)
 {
 	return Data[button];
 }
 
-//Çå³ýÊý¾Ý»º³åÇø
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý»ï¿½ï¿½ï¿½ï¿½ï¿½
 void PS2_ClearData()
 {
 	uint8_t a;
@@ -127,23 +127,23 @@ void PS2_ClearData()
 
 //void delay_init(uint8_t SYSCLK)
 //{
-//	SysTick->CTRL&=0xfffffffb;//bit2Çå¿Õ,Ñ¡ÔñÍâ²¿Ê±ÖÓ  HCLK/8
+//	SysTick->CTRL&=0xfffffffb;//bit2ï¿½ï¿½ï¿½,Ñ¡ï¿½ï¿½ï¿½â²¿Ê±ï¿½ï¿½  HCLK/8
 //	fac_us=SYSCLK/8;
 //}
 
 //void HAL_Delay_us(uint32_t nus)
 //{
 //	uint32_t temp;
-//	SysTick->LOAD=nus*fac_us; //Ê±¼ä¼ÓÔØ
-//	SysTick->VAL=0x00;        //Çå¿Õ¼ÆÊýÆ÷
-//	SysTick->CTRL=0x01 ;      //¿ªÊ¼µ¹Êý
+//	SysTick->LOAD=nus*fac_us; //Ê±ï¿½ï¿½ï¿½ï¿½ï¿½
+//	SysTick->VAL=0x00;        //ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½
+//	SysTick->CTRL=0x01 ;      //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
 //	do
 //	{
 //		temp=SysTick->CTRL;
 //	}
-//	while(temp&0x01&&!(temp&(1<<16)));//µÈ´ýÊ±¼äµ½´ï
-//	SysTick->CTRL=0x00;       //¹Ø±Õ¼ÆÊýÆ÷
-//	SysTick->VAL =0X00;       //Çå¿Õ¼ÆÊýÆ÷
+//	while(temp&0x01&&!(temp&(1<<16)));//ï¿½È´ï¿½Ê±ï¿½äµ½ï¿½ï¿½
+//	SysTick->CTRL=0x00;       //ï¿½Ø±Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½
+//	SysTick->VAL =0X00;       //ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½
 //}
 
 //short poll
@@ -160,7 +160,7 @@ void PS2_ShortPoll(void)
 	HAL_Delay_us(16);
 }
 
-//½øÈëÉèÖÃ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void PS2_EnterConfing(void)
 {
 	CS_L;
@@ -178,16 +178,16 @@ void PS2_EnterConfing(void)
 	HAL_Delay_us(16);
 }
 
-//·¢ËÍÄ£Ê½ÉèÖÃ
+//ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½ï¿½ï¿½
 void PS2_TurnOnAnalogMode(void)
 {
 	CS_L;
 	PS2_Cmd(0x01);
 	PS2_Cmd(0x44);
 	PS2_Cmd(0X00);
-	PS2_Cmd(0x01); //analog=0x01;digital=0x00  Èí¼þÉèÖÃ·¢ËÍÄ£Ê½
-	PS2_Cmd(0x03); //Ox03Ëø´æÉèÖÃ£¬¼´²»¿ÉÍ¨¹ý°´¼ü¡°MODE¡±ÉèÖÃÄ£Ê½¡£
-				   //0xEE²»Ëø´æÈí¼þÉèÖÃ£¬¿ÉÍ¨¹ý°´¼ü¡°MODE¡±ÉèÖÃÄ£Ê½¡£
+	PS2_Cmd(0x01); //analog=0x01;digital=0x00  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½Ä£Ê½
+	PS2_Cmd(0x03); //Ox03ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½MODEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½
+				   //0xEEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½MODEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½
 	PS2_Cmd(0X00);
 	PS2_Cmd(0X00);
 	PS2_Cmd(0X00);
@@ -196,7 +196,7 @@ void PS2_TurnOnAnalogMode(void)
 	HAL_Delay_us(16);
 }
 
-//Õñ¶¯ÉèÖÃ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void PS2_VibrationMode(void)
 {
 	CS_L;
@@ -210,7 +210,7 @@ void PS2_VibrationMode(void)
 	HAL_Delay_us(16);
 }
 
-//Íê³É²¢±£´æÅäÖÃ
+//ï¿½ï¿½É²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void PS2_ExitConfing(void)
 {
 	CS_L;
@@ -228,32 +228,32 @@ void PS2_ExitConfing(void)
 	HAL_Delay_us(16);
 }
 
-//ÊÖ±úÅäÖÃ³õÊ¼»¯
+//ï¿½Ö±ï¿½ï¿½ï¿½ï¿½Ã³ï¿½Ê¼ï¿½ï¿½
 void PS2_SetInit(void)
 {
-	motor_ready = 0;
+	motor_ready = false;
 	PS2_ShortPoll();
 	PS2_ShortPoll();
 	PS2_ShortPoll();
-	PS2_EnterConfing();		//½øÈëÅäÖÃÄ£Ê½
-	PS2_TurnOnAnalogMode(); //¡°ºìÂÌµÆ¡±ÅäÖÃÄ£Ê½£¬²¢Ñ¡ÔñÊÇ·ñ±£´æ
-	PS2_VibrationMode();	//¿ªÆôÕð¶¯Ä£Ê½
-	PS2_ExitConfing(); //Íê³É²¢±£´æÅäÖÃ
+	PS2_EnterConfing();		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½
+	PS2_TurnOnAnalogMode(); //ï¿½ï¿½ï¿½ï¿½ï¿½ÌµÆ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ç·ñ±£´ï¿½
+	PS2_VibrationMode();	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½
+	PS2_ExitConfing(); //ï¿½ï¿½É²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 /******************************************************
 Function:    void PS2_Vibration(u8 motor1, u8 motor2)
-Description: ÊÖ±úÕð¶¯º¯Êý£¬
+Description: ï¿½Ö±ï¿½ï¿½ð¶¯ºï¿½ï¿½ï¿½ï¿½ï¿½
 Calls:		 void PS2_Cmd(u8 CMD);
-Input: motor1:ÓÒ²àÐ¡Õð¶¯µç»ú 0x00¹Ø£¬ÆäËû¿ª
-	   motor2:×ó²à´óÕð¶¯µç»ú 0x40~0xFF µç»ú¿ª£¬ÖµÔ½´ó Õð¶¯Ô½´ó
+Input: motor1:ï¿½Ò²ï¿½Ð¡ï¿½ð¶¯µï¿½ï¿½ 0x00ï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	   motor2:ï¿½ï¿½ï¿½ï¿½ï¿½ð¶¯µï¿½ï¿½ 0x40~0xFF ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÔ½ï¿½ï¿½ ï¿½ï¿½Ô½ï¿½ï¿½
 ******************************************************/
 void PS2_Vibration(uint8_t motor1, uint8_t motor2)
 {
 	CS_L;
 	HAL_Delay_us(16);
-	PS2_Cmd(0x01); //¿ªÊ¼ÃüÁî
-	PS2_Cmd(0x42); //ÇëÇóÊý¾Ý
+	PS2_Cmd(0x01); //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
+	PS2_Cmd(0x42); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	PS2_Cmd(0X00);
 	PS2_Cmd(motor1);
 	PS2_Cmd(motor2);
@@ -265,7 +265,7 @@ void PS2_Vibration(uint8_t motor1, uint8_t motor2)
 	HAL_Delay_us(16);
 }
 
-//¶ÁÈ¡ÊÖ±úÐÅÏ¢
+//ï¿½ï¿½È¡ï¿½Ö±ï¿½ï¿½ï¿½Ï¢
 void PS2_Receive(void)
 {
 	PS2_LX = PS2_AnologData(PSS_LX);  //left-0       mid-127      right-255 

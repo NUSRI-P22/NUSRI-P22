@@ -11,12 +11,12 @@ float set_spdR;// rpm  ���ֽ��ٶȣ�ת�٣�
 float set_spdL1;
 float set_spdR1;
 
-float Vcx = 0;   //   m/s    ����ת�����ٶ�    
-float Wc = 0;    //   rad/s  ����ת����ٶ�
-float C = 0.5;     //   m      ���
-float r = 0.1;     //   m      ���ְ뾶
+float Vcx = 0;   //   m/s 
+float Wc = 0;    //   rad/s 
+float C = 0.5;     //   m 
+float r = 0.1;     //   m 
 int flaggg = 0;
-int free_flag = 0;
+bool free_flag = false; // true if motors
 
 
 
@@ -25,7 +25,7 @@ float low_pass_filter(float value, float fc, float Ts)
 {
 	
 	
-	float b = fc * Ts;
+  float b = fc * Ts;
   float alpha = b / (b + 1);
   static float out_last = 0; //��һ���˲�ֵ
   float out;
@@ -46,7 +46,7 @@ float low_pass_filter(float value, float fc, float Ts)
 
 void Motor_Speed_Calc()
 {
-		if(motor_shutdown == 1)
+		if(motor_shutdown)
 		{
 			set_spdL = 0;
 			set_spdR = 0;
@@ -63,11 +63,6 @@ void Motor_Speed_Calc()
 // 	set_spdR = 1140;
   	
 }
-
-
-
-
-
 
 
 void Motor_Speed_pid_init()  //static void pid_param_init(PID_TypeDef * pid, PID_ID   id,uint16_t maxout,uint16_t intergral_limit,float deadband,uint16_t period,int16_t  max_err,int16_t  target,float 	kp, float 	ki, float 	kd)
@@ -92,53 +87,46 @@ void Set_free()
 }
 
 
+// Return true if the Joystick is centered
+bool PS2_Is_Center(){
+	return (PS2_LY < 130) && (PS2_LY > 126) && (PS2_RX < 129) && (PS2_RX > 125);
+}
+
+
 
 void Speed_set()
 {
-	if(motor_ready == 1)
+	if(motor_ready)
 	{
-		if(motor_shutdown == 0)
+		if(!motor_shutdown)
 		{
-		
-			if((PS2_LY < 130) && (PS2_LY > 126) && (PS2_RX < 129) && (PS2_RX > 125))
-			{
-				Set_free();
-				free_flag = 1;
-			}
-			else
-			{
-				free_flag = 0;
-			}
+			if(free_flag = PS2_Is_Center()) Set_free();
 		}
 		
 		if(free_flag == 0)
 		{
 			Motor_Speed_Calc();
-			motor_pid[0].target = set_spdL;    //��ǰ
-			motor_pid[1].target = set_spdL;    //���
-			motor_pid[2].target = -set_spdR;    //��ǰ
-			motor_pid[3].target = -set_spdR;    //�Һ�
+			motor_pid[0].target = set_spdL;    // left-motor
+			motor_pid[1].target = set_spdL;    // left-motor
+			motor_pid[2].target = -set_spdR;   // right-motor
+			motor_pid[3].target = -set_spdR;   // right-motor
 			for(int i=0; i<4; i++)
 			{	 																							
-				motor_pid[i].f_cal_pid(&motor_pid[i],motor_chassis[i].speed_rpm);    //�����趨ֵ����PID���㡣
+				motor_pid[i].f_cal_pid(&motor_pid[i],motor_chassis[i].speed_rpm);    // PID calculated output
 			}
 
-			CAN_cmd_chassis(motor_pid[0].output,   //��PID�ļ�����ͨ��CAN���͵����
+			CAN_cmd_chassis(motor_pid[0].output,   // set current
 											motor_pid[1].output,
 											motor_pid[2].output,
 											motor_pid[3].output);
 		}
-  }
-		if(motor_ready == 0)
-		{
-		
-				Set_free();
-				free_flag = 1;
-		
-		}
-
-	
-	
+	}
+	else{
+			
+		Set_free();
+		free_flag = 1;
+			
+	}
 	
 }
 void speed_print()

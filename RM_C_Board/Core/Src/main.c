@@ -53,7 +53,7 @@
 /* USER CODE BEGIN PV */
 
 
-extern int stop_flag;//������ֹ��־
+extern int stop_flag; // KEY Button
 extern FusionAhrs ahrs;
 
 
@@ -117,7 +117,7 @@ int main(void)
 	clrStruct();
 
 	TaskAdd(Speed_set, 5); // 200Hz for wheel PID
-	IMUdeltaTime = 0.001; TaskAdd(IMU_update, 1); // 1000Hz for updating IMU and print delta time // TaskPrintDeltaTime( TaskAdd(IMU_update, 1) );
+	IMUdeltaTime = (float)TaskAdd(IMU_update, 1) -> Period / 1000.0f; // 1000Hz for updating IMU and print delta time // TaskPrintDeltaTime( TaskAdd(IMU_update, 1) );
 	//TaskAdd(VOFA_Print, 10); // 100Hz Print to VOFA
 	TaskAdd(Joystick_motor_control, 20); // 50Hz
 	TaskAdd(ParseGpsBuffer, 100); // 10Hz
@@ -131,23 +131,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		//IO
-//		HAL_GPIO_WritePin(GPIOH,GPIO_PIN_10,1);//��ɫ
-//		HAL_GPIO_WritePin(GPIOH,GPIO_PIN_11,1);//��ɫ
-//		HAL_GPIO_WritePin(GPIOH,GPIO_PIN_12,1);//��ɫ
-//		HAL_GPIO_TogglePin(GPIOH,GPIO_PIN_11);//IO��ת
-		//��ʱ(ms)
-//		HAL_Delay(5000);
-//		__HAL_TIM_SetCompare(&htim5,TIM_CHANNEL_1,0);//0-65535  ��ɫ
-//		__HAL_TIM_SetCompare(&htim5,TIM_CHANNEL_2,0);//0-65535  ��ɫ
-//		__HAL_TIM_SetCompare(&htim5,TIM_CHANNEL_3,50000);//0-65535  ��ɫ
 
-//	  CAN_cmd_chassis(1500,0,0,0);	1500������Ӧ10000rpm
-
-		if(stop_flag !=0)  //����  ����KEY��ֹͣ����
+		if(stop_flag)  // Stop Driving when stop_flag is true
 		{
 			// led_red_blink();
-			
 		}
 		else
 		{

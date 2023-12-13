@@ -1,0 +1,8 @@
+HAL_GPIO_WritePin(GPIOH,GPIO_PIN_10,1) : 蓝色
+HAL_GPIO_WritePin(GPIOH,GPIO_PIN_11,1) : 绿色
+HAL_GPIO_WritePin(GPIOH,GPIO_PIN_12,1) : 红色HAL_GPIO_TogglePin(GPIOH,GPIO_PIN_11) : IO翻转
+HAL_Delay(5000) : 延时(ms)
+__HAL_TIM_SetCompare(&htim5,TIM_CHANNEL_1,0) : 0-65535-蓝色
+__HAL_TIM_SetCompare(&htim5,TIM_CHANNEL_2,0) : 0-65535-绿色
+__HAL_TIM_SetCompare(&htim5,TIM_CHANNEL_3,50000) : 0-65535-红色
+CAN_cmd_chassis(1500,0,0,0) :	1500电流对应10000rpm
