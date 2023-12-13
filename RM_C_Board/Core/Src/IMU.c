@@ -6,20 +6,47 @@
 #include <math.h>
 #include "Fusion.h"
 
+#define g 9.795f // For SuZhou, JiangSu, China
+
+// Initialise algorithms
 FusionAhrs ahrs;
-float IMUdeltaTime = 0.005; // default 200Hz
-float gyro[3], accel[3], temp, g = 9.795; // For SuZhou, JiangSu, China
+FusionOffset offset;
+float IMUdeltaTime = 0.001; // default 1000Hz
+float gyro[3], accel[3], temp;
+FusionVector gyroscope;
+FusionVector accelerometer;
+FusionVector magnetometer;
+
+// Define calibration (replace with actual calibration data if available)
+const FusionMatrix gyroscopeMisalignment = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f};
+const FusionVector gyroscopeSensitivity = {1.0f, 1.0f, 120.0f / 109.0f};
+const FusionVector gyroscopeOffset = {0.0f, 0.0f, 0.035f};
+const FusionMatrix accelerometerMisalignment = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f};
+const FusionVector accelerometerSensitivity = {9.72f / g, 9.7475f / g, 9.75f / g};
+const FusionVector accelerometerOffset = {0.04f / g, 0.1125f / g, 0.01f / g};
+const FusionMatrix softIronMatrix = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f};
+const FusionVector hardIronOffset = {0.0f, 0.0f, 0.0f};
+
 
 void IMU_update()
 {
 	BMI088_read(gyro, accel, &temp); // read IMU Date
 
-	const FusionVector gyroscope = {{FusionRadiansToDegrees(gyro[0]), FusionRadiansToDegrees(gyro[1]), FusionRadiansToDegrees(gyro[2])}}; // unit: dps
-	const FusionVector accelerometer = FusionVectorMultiplyScalar((FusionVector){{accel[0], accel[1], accel[2]}}, 1/g); // unit: g
-	//FusionAhrsUpdateNoMagnetometer(&ahrs, gyroscope, accelerometer, IMUdeltaTime);
-	const FusionVector magnetometer = {{IST8310data[0],IST8310data[1],IST8310data[2]}};
+	gyroscope = (FusionVector){{FusionRadiansToDegrees(gyro[0]), FusionRadiansToDegrees(gyro[1]), FusionRadiansToDegrees(gyro[2])}}; // unit: dps
+	accelerometer = FusionVectorMultiplyScalar((FusionVector){{accel[0], accel[1], accel[2]}}, 1/g); // unit: g
+	magnetometer = (FusionVector){{IST8310data[0],IST8310data[1],IST8310data[2]}};
+	
+	// Apply calibration
+	gyroscope = FusionCalibrationInertial(gyroscope, gyroscopeMisalignment, gyroscopeSensitivity, gyroscopeOffset);
+	accelerometer = FusionCalibrationInertial(accelerometer, accelerometerMisalignment, accelerometerSensitivity, accelerometerOffset);
+	magnetometer = FusionCalibrationMagnetic(magnetometer, softIronMatrix, hardIronOffset);
+	
+	// Update gyroscope offset correction algorithm
+	gyroscope = FusionOffsetUpdate(&offset, gyroscope);
+	
+	// FusionAhrsUpdateNoMagnetometer(&ahrs, gyroscope, accelerometer, IMUdeltaTime);
 	FusionAhrsUpdate(&ahrs, gyroscope, accelerometer, magnetometer, IMUdeltaTime); // AHRS Calculation
-}
+}l
 
 void IMU_print()
 {

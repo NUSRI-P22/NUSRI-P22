@@ -117,8 +117,8 @@ int main(void)
 	clrStruct();
 
 	TaskAdd(Speed_set, 5); // 200Hz for wheel PID
-	IMUdeltaTime = (float)TaskAdd(IMU_update, 1) -> Period / 1000.0f; // 1000Hz for updating IMU and print delta time // TaskPrintDeltaTime( TaskAdd(IMU_update, 1) );
-	//TaskAdd(VOFA_Print, 10); // 100Hz Print to VOFA
+	TaskAdd(IMU_update, IMUdeltaTime * 1000); // 1000Hz for updating IMU and print delta time // TaskPrintDeltaTime( TaskAdd(IMU_update, 1) );
+	TaskAdd(VOFA_Print, 10); // 100Hz Print to VOFA
 	TaskAdd(Joystick_motor_control, 20); // 50Hz
 	TaskAdd(ParseGpsBuffer, 100); // 10Hz
 
@@ -194,21 +194,33 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 
+extern float gyro[], accel[];
+extern FusionOffset offset;
+extern FusionVector gyroscope;
+extern FusionVector accelerometer;
+extern FusionVector magnetometer;
 void VOFA_Print(){
 	const FusionEuler euler = FusionQuaternionToEuler(FusionAhrsGetQuaternion(&ahrs));
 	const FusionVector LinearAcc = FusionAhrsGetLinearAcceleration(&ahrs);
 	// const FusionVector EarthAcc = FusionAhrsGetEarthAcceleration(&ahrs);
-
+	
 	// Print to VOFA+
-	usart_printf("%lf,%lf,%d,%d,%d,%d,%0.1f,%f,%f,%f\n",
-			Convert_to_degrees(Save_Data.latitude),
-			Convert_to_degrees(Save_Data.longitude),
-			motor_chassis[0].speed_rpm,
-			motor_chassis[1].speed_rpm,
-			-motor_chassis[2].speed_rpm,
-			-motor_chassis[3].speed_rpm,
-			euler.angle.yaw,
-			LinearAcc.axis.x,Save_Data.X,Save_Data.Y);
+	usart_printf("%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n",
+			gyroscope.axis.x, gyroscope.axis.y, gyroscope.axis.z,
+			accelerometer.axis.x, accelerometer.axis.y, accelerometer.axis.z,
+			euler.angle.roll, euler.angle.pitch, euler.angle.yaw,
+			offset.gyroscopeOffset.axis.x, offset.gyroscopeOffset.axis.y, offset.gyroscopeOffset.axis.z
+	);
+	
+//	usart_printf("%lf,%lf,%d,%d,%d,%d,%0.1f,%f,%f,%f\n",
+//			Convert_to_degrees(Save_Data.latitude),
+//			Convert_to_degrees(Save_Data.longitude),
+//			motor_chassis[0].speed_rpm,
+//			motor_chassis[1].speed_rpm,
+//			-motor_chassis[2].speed_rpm,
+//			-motor_chassis[3].speed_rpm,
+//			euler.angle.yaw,
+//			LinearAcc.axis.x,Save_Data.X,Save_Data.Y);
 	// usart_printf("%0.3f,%0.3f,%0.3f\n", euler.angle.roll, euler.angle.pitch, euler.angle.yaw);
 	// PrintGpsBuffer();
 }
