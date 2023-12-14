@@ -118,7 +118,7 @@ int main(void)
 
 	TaskAdd(Speed_set, 5); // 200Hz for wheel PID
 	TaskAdd(IMU_update, IMUdeltaTime * 1000); // 1000Hz for updating IMU and print delta time // TaskPrintDeltaTime( TaskAdd(IMU_update, 1) );
-	TaskAdd(VOFA_Print, 10); // 100Hz Print to VOFA
+	TaskAdd(VOFA_Print, 20); // 50Hz Print to VOFA
 	TaskAdd(Joystick_motor_control, 20); // 50Hz
 	TaskAdd(ParseGpsBuffer, 100); // 10Hz
 
@@ -204,15 +204,27 @@ void VOFA_Print(){
 	const FusionVector LinearAcc = FusionAhrsGetLinearAcceleration(&ahrs);
 	// const FusionVector EarthAcc = FusionAhrsGetEarthAcceleration(&ahrs);
 	
+//	usart_printf("%f,%f,%f,%f,%f,%f,%d,%d,%f,%f\n",
+//			magnetometer.axis.x, magnetometer.axis.y, magnetometer.axis.z,
+//			euler.angle.roll, euler.angle.pitch, euler.angle.yaw,
+//			ahrs.magnetometerIgnored, ahrs.initialising, FusionVectorMagnitudeSquared(ahrs.halfMagnetometerFeedback),ahrs.settings.magneticRejection
+//	);
+	
+	// LPF for acc
+	static float acc_x_avg = 0, acc_y_avg = 0, acc_z_avg = 0;
+	acc_x_avg = 0.95 * acc_x_avg + 0.05 * accelerometer.axis.x;
+	acc_y_avg = 0.95 * acc_y_avg + 0.05 * accelerometer.axis.y;
+	acc_z_avg = 0.95 * acc_z_avg + 0.05 * accelerometer.axis.z;
+	
 	// Print to VOFA+
 	usart_printf("%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n",
 			gyroscope.axis.x, gyroscope.axis.y, gyroscope.axis.z,
-			accelerometer.axis.x, accelerometer.axis.y, accelerometer.axis.z,
+			acc_x_avg, acc_y_avg, acc_z_avg,
 			euler.angle.roll, euler.angle.pitch, euler.angle.yaw,
 			offset.gyroscopeOffset.axis.x, offset.gyroscopeOffset.axis.y, offset.gyroscopeOffset.axis.z
 	);
 	
-//	usart_printf("%lf,%lf,%d,%d,%d,%d,%0.1f,%f,%f,%f\n",
+//	usart_printf("%lf,%lf,%d,%d,%d,%d,%0.1f,%f,%f,%f\n",	
 //			Convert_to_degrees(Save_Data.latitude),
 //			Convert_to_degrees(Save_Data.longitude),
 //			motor_chassis[0].speed_rpm,

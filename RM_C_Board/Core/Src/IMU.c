@@ -6,6 +6,7 @@
 #include <math.h>
 #include "Fusion.h"
 
+// Do not Change!
 #define g 9.795f // For SuZhou, JiangSu, China
 
 // Initialise algorithms
@@ -18,12 +19,12 @@ FusionVector accelerometer;
 FusionVector magnetometer;
 
 // Define calibration (replace with actual calibration data if available)
-const FusionMatrix gyroscopeMisalignment = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f};
-const FusionVector gyroscopeSensitivity = {1.0f, 1.0f, 120.0f / 109.0f};
-const FusionVector gyroscopeOffset = {0.0f, 0.0f, 0.035f};
-const FusionMatrix accelerometerMisalignment = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f};
-const FusionVector accelerometerSensitivity = {9.72f / g, 9.7475f / g, 9.75f / g};
-const FusionVector accelerometerOffset = {0.04f / g, 0.1125f / g, 0.01f / g};
+const FusionMatrix gyroscopeMisalignment = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f}; // No need
+const FusionVector gyroscopeSensitivity = {1.0f, 1.0f, 1.011047f}; // Done!
+const FusionVector gyroscopeOffset = {0.067f, -0.045f, 0.038f}; // Done!
+const FusionMatrix accelerometerMisalignment = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f}; // No need
+const FusionVector accelerometerSensitivity = {1.009082f, 1.006542f, 1.009082f}; // Done!
+const FusionVector accelerometerOffset = {0.003f, -0.002f, -0.001f}; // Done!
 const FusionMatrix softIronMatrix = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f};
 const FusionVector hardIronOffset = {0.0f, 0.0f, 0.0f};
 
@@ -33,7 +34,7 @@ void IMU_update()
 	BMI088_read(gyro, accel, &temp); // read IMU Date
 
 	gyroscope = (FusionVector){{FusionRadiansToDegrees(gyro[0]), FusionRadiansToDegrees(gyro[1]), FusionRadiansToDegrees(gyro[2])}}; // unit: dps
-	accelerometer = FusionVectorMultiplyScalar((FusionVector){{accel[0], accel[1], accel[2]}}, 1/g); // unit: g
+	accelerometer = FusionVectorMultiplyScalar((FusionVector){{accel[0], accel[1], accel[2]}}, 1.0f / g); // unit: g
 	magnetometer = (FusionVector){{IST8310data[0],IST8310data[1],IST8310data[2]}};
 	
 	// Apply calibration
@@ -44,9 +45,9 @@ void IMU_update()
 	// Update gyroscope offset correction algorithm
 	gyroscope = FusionOffsetUpdate(&offset, gyroscope);
 	
-	// FusionAhrsUpdateNoMagnetometer(&ahrs, gyroscope, accelerometer, IMUdeltaTime);
-	FusionAhrsUpdate(&ahrs, gyroscope, accelerometer, magnetometer, IMUdeltaTime); // AHRS Calculation
-}l
+	FusionAhrsUpdateNoMagnetometer(&ahrs, gyroscope, accelerometer, IMUdeltaTime);
+	// FusionAhrsUpdate(&ahrs, gyroscope, accelerometer, magnetometer, IMUdeltaTime); // AHRS Calculation
+}
 
 void IMU_print()
 {

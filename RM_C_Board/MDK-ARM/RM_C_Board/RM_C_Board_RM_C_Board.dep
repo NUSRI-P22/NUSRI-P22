@@ -64,7 +64,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -144,7 +144,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -263,7 +263,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -280,9 +280,9 @@ I (..\Core\Inc\Motor_Speed_pid.h)(0x6579AE34)
 I (..\Core\Inc\sweep.h)(0x65799EFC)
 I (..\Core\Inc\gps.h)(0x6579ADE5)
 I (..\Core\Inc\Task.h)(0x65799EFC)
-F (..\Core\Src\FusionAhrs.c)(0x65799EFC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I./RTE/_RM_C_Board-IC:/Users/NUSRI/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NUSRI/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o rm_c_board/fusionahrs.o -MD)
+F (..\Core\Src\FusionAhrs.c)(0x657A86E2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I./RTE/_RM_C_Board-IC:/Users/NUSRI/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NUSRI/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o rm_c_board/fusionahrs.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\float.h)(0x63884908)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63884908)
@@ -302,7 +302,7 @@ I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
-F (..\Core\Src\IMU.c)(0x6579CA7C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I./RTE/_RM_C_Board-IC:/Users/NUSRI/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NUSRI/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o rm_c_board/imu.o -MD)
+F (..\Core\Src\IMU.c)(0x657A867A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I./RTE/_RM_C_Board-IC:/Users/NUSRI/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NUSRI/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o rm_c_board/imu.o -MD)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
 I (..\Core\Inc\headfile.h)(0x65799EFC)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63884908)
@@ -369,7 +369,7 @@ I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver.h)(0x65799EFC)
 I (..\Core\Inc\IST.h)(0x65799EFC)
 I (..\Core\Inc\User_init.h)(0x65799EFC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\FusionCompass.h)(0x65799EFC)
@@ -446,7 +446,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -462,7 +462,7 @@ I (..\Core\Inc\Motor_Speed_pid.h)(0x6579AE34)
 I (..\Core\Inc\sweep.h)(0x65799EFC)
 I (..\Core\Inc\gps.h)(0x6579ADE5)
 I (..\Core\Inc\Task.h)(0x65799EFC)
-F (..\Core\Src\ist8310driver.c)(0x65799EFC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I./RTE/_RM_C_Board-IC:/Users/NUSRI/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NUSRI/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o rm_c_board/ist8310driver.o -MD)
+F (..\Core\Src\ist8310driver.c)(0x657A73EB)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I./RTE/_RM_C_Board-IC:/Users/NUSRI/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NUSRI/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o rm_c_board/ist8310driver.o -MD)
 I (..\Core\Inc\ist8310driver.h)(0x65799EFC)
 I (..\Core\Inc\headfile.h)(0x65799EFC)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63884908)
@@ -526,7 +526,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -606,7 +606,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver.h)(0x65799EFC)
@@ -685,7 +685,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -765,7 +765,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -846,7 +846,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -926,7 +926,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -1005,7 +1005,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -1086,7 +1086,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -1165,7 +1165,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -1182,7 +1182,7 @@ I (..\Core\Inc\Motor_Speed_pid.h)(0x6579AE34)
 I (..\Core\Inc\sweep.h)(0x65799EFC)
 I (..\Core\Inc\gps.h)(0x6579ADE5)
 I (..\Core\Inc\Task.h)(0x65799EFC)
-F (..\Core\Src\User_init.c)(0x6579B655)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I./RTE/_RM_C_Board-IC:/Users/NUSRI/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NUSRI/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o rm_c_board/user_init.o -MD)
+F (..\Core\Src\User_init.c)(0x657A8683)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I./RTE/_RM_C_Board-IC:/Users/NUSRI/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NUSRI/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o rm_c_board/user_init.o -MD)
 I (..\Core\Inc\User_init.h)(0x65799EFC)
 I (..\Core\Inc\headfile.h)(0x65799EFC)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63884908)
@@ -1246,7 +1246,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -1325,7 +1325,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -1342,7 +1342,7 @@ I (..\Core\Inc\Motor_Speed_pid.h)(0x6579AE34)
 I (..\Core\Inc\sweep.h)(0x65799EFC)
 I (..\Core\Inc\gps.h)(0x6579ADE5)
 I (..\Core\Inc\Task.h)(0x65799EFC)
-F (../Core/Src/main.c)(0x6579C484)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I./RTE/_RM_C_Board-IC:/Users/NUSRI/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NUSRI/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o rm_c_board/main.o -MD)
+F (../Core/Src/main.c)(0x657A871C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I./RTE/_RM_C_Board-IC:/Users/NUSRI/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NUSRI/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o rm_c_board/main.o -MD)
 I (..\Core\Inc\main.h)(0x65799EFC)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x65799EFC)
 I (..\Core\Inc\stm32f4xx_hal_conf.h)(0x65799EFC)
@@ -1407,7 +1407,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -1699,7 +1699,7 @@ I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h)(0x65799EFC)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x65799EFC)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-F (../Core/Src/stm32f4xx_it.c)(0x65799EFC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I./RTE/_RM_C_Board-IC:/Users/NUSRI/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NUSRI/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o rm_c_board/stm32f4xx_it.o -MD)
+F (../Core/Src/stm32f4xx_it.c)(0x657A62A1)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I./RTE/_RM_C_Board-IC:/Users/NUSRI/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NUSRI/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o rm_c_board/stm32f4xx_it.o -MD)
 I (..\Core\Inc\main.h)(0x65799EFC)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x65799EFC)
 I (..\Core\Inc\stm32f4xx_hal_conf.h)(0x65799EFC)
@@ -1762,7 +1762,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -1881,7 +1881,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -1998,7 +1998,7 @@ I (..\Core\Inc\struct_typedef.h)(0x65799EFC)
 I (..\Core\Inc\BMI088reg.h)(0x65799EFC)
 I (..\Core\Inc\BMI088Middleware.h)(0x65799EFC)
 I (..\Core\Inc\IMU.h)(0x6579BABC)
-I (..\Core\Inc\FusionAhrs.h)(0x65799EFC)
+I (..\Core\Inc\FusionAhrs.h)(0x657A840D)
 I (..\Core\Inc\FusionConvention.h)(0x65799EFC)
 I (..\Core\Inc\FusionMath.h)(0x65799EFC)
 I (..\Core\Inc\ist8310driver_middleWare.h)(0x65799EFC)
@@ -2606,7 +2606,7 @@ I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x65799EFC)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h)(0x65799EFC)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h)(0x65799EFC)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x65799EFC)
-F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c)(0x65799EFC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I./RTE/_RM_C_Board-IC:/Users/NUSRI/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NUSRI/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o rm_c_board/stm32f4xx_hal_spi.o -MD)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c)(0x657A555A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I./RTE/_RM_C_Board-IC:/Users/NUSRI/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NUSRI/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o rm_c_board/stm32f4xx_hal_spi.o -MD)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x65799EFC)
 I (..\Core\Inc\stm32f4xx_hal_conf.h)(0x65799EFC)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x65799EFC)
