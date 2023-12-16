@@ -103,6 +103,10 @@ FusionAhrsFlags FusionAhrsGetFlags(const FusionAhrs *const ahrs);
 
 void FusionAhrsSetHeading(FusionAhrs *const ahrs, const float heading);
 
+extern FusionVector HGravity;
+extern FusionVector HMagnetic;
+extern bool HMagneticUpdated;
+
 #endif
 
 //------------------------------------------------------------------------------

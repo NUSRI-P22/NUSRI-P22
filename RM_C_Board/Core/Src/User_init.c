@@ -20,7 +20,7 @@ void Init_all()
 	FusionAhrsInitialise(&ahrs);
 	// Set AHRS algorithm settings
 	const FusionAhrsSettings settings = {
-					.convention = FusionConventionNwu,
+					.convention = FusionConventionEnu,
 					.gain = 0.5f,
 					.gyroscopeRange = 2000.0f, /* replace this with actual gyroscope range in degrees/s */
 					.accelerationRejection = 10.0f,

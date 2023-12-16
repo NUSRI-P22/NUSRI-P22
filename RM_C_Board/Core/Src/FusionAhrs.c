@@ -136,7 +136,7 @@ void FusionAhrsUpdate(FusionAhrs *const ahrs, const FusionVector gyroscope, cons
 
     // Calculate direction of gravity indicated by algorithm
     const FusionVector halfGravity = HalfGravity(ahrs);
-
+		
     // Calculate accelerometer feedback
     FusionVector halfAccelerometerFeedback = FUSION_VECTOR_ZERO;
     ahrs->accelerometerIgnored = true;
@@ -171,14 +171,15 @@ void FusionAhrsUpdate(FusionAhrs *const ahrs, const FusionVector gyroscope, cons
     // Calculate magnetometer feedback
     FusionVector halfMagnetometerFeedback = FUSION_VECTOR_ZERO;
     ahrs->magnetometerIgnored = true;
+		
     if (FusionVectorIsZero(magnetometer) == false) {
 
         // Calculate direction of magnetic field indicated by algorithm
         const FusionVector halfMagnetic = HalfMagnetic(ahrs);
-
+			
         // Calculate magnetometer feedback scaled by 0.5
         ahrs->halfMagnetometerFeedback = Feedback(FusionVectorNormalise(FusionVectorCrossProduct(halfGravity, magnetometer)), halfMagnetic);
-
+			
         // Don't ignore magnetometer if magnetic error below threshold
         if ((ahrs->initialising == true) || ((FusionVectorMagnitudeSquared(ahrs->halfMagnetometerFeedback) <= ahrs->settings.magneticRejection))) {
             ahrs->magnetometerIgnored = false;
