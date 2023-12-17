@@ -116,10 +116,13 @@ int main(void)
 	Init_all();
 	clrStruct();
 
-	// TaskAdd(Speed_set, 5); // 200Hz for wheel PID
-	TaskAdd(IMU_update, IMUdeltaTime * 1000); // 1000Hz for updating IMU and print delta time // TaskPrintDeltaTime( TaskAdd(IMU_update, 1) );
+
+	
 	TaskAdd(VOFA_Print, 20); // 50Hz Print to VOFA
-	// TaskAdd(Joystick_motor_control, 20); // 50Hz
+	TaskAdd(Speed_set, 5); // 200Hz for wheel PID
+	TaskAdd(IMU_update, IMUdeltaTime * 1000); // 1000Hz for updating IMU and print delta time // TaskPrintDeltaTime( TaskAdd(IMU_update, 1) );
+	
+	TaskAdd(Joystick_motor_control, 20); // 50Hz
 	TaskAdd(ParseGpsBuffer, 100); // 10Hz
 
   /* USER CODE END 2 */
@@ -131,7 +134,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+		
 		if(stop_flag)  // Stop Driving when stop_flag is true
 		{
 			// led_red_blink();
@@ -199,37 +202,45 @@ extern FusionOffset offset;
 extern FusionVector gyroscope;
 extern FusionVector accelerometer;
 extern FusionVector magnetometer;
+float real_vcx;
+float real_w;    //clockwise stands for minus
+
 void VOFA_Print(){
 	const FusionEuler euler = FusionQuaternionToEuler(FusionAhrsGetQuaternion(&ahrs));
 	const FusionVector LinearAcc = FusionAhrsGetLinearAcceleration(&ahrs);
 	// const FusionVector EarthAcc = FusionAhrsGetEarthAcceleration(&ahrs);
-
 	
-	// LPF for acc
-	static float acc_x_avg = 0, acc_y_avg = 0, acc_z_avg = 0;
-	acc_x_avg = 0.95 * acc_x_avg + 0.05 * accelerometer.axis.x;
-	acc_y_avg = 0.95 * acc_y_avg + 0.05 * accelerometer.axis.y;
-	acc_z_avg = 0.95 * acc_z_avg + 0.05 * accelerometer.axis.z;
+	MOTORrpm2vw(motor_chassis[0].speed_rpm,-motor_chassis[2].speed_rpm,&real_vcx,&real_w);
+	LongLat2XY(Convert_to_degrees(Save_Data.longitude),Convert_to_degrees(Save_Data.latitude),&gps_X,&gps_Y);
+	LongLat2XY(120.742925,31.268221,&gps_X0,&gps_Y0);
 	
 	// Print to VOFA+
-	usart_printf("%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n",
-			gyroscope.axis.x, gyroscope.axis.y, gyroscope.axis.z,
-			acc_x_avg, acc_y_avg, acc_z_avg,
-			magnetometer.axis.x, magnetometer.axis.y, magnetometer.axis.z,
-			euler.angle.roll, euler.angle.pitch, euler.angle.yaw
-	);
+//	usart_printf("%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n",
+//			gyroscope.axis.x, gyroscope.axis.y, gyroscope.axis.z,
+//			acc_x_avg, acc_y_avg, acc_z_avg,
+//			magnetometer.axis.x, magnetometer.axis.y, magnetometer.axis.z,
+//			euler.angle.roll, euler.angle.pitch, euler.angle.yaw
+//	);
 	
-//	usart_printf("%lf,%lf,%d,%d,%d,%d,%0.1f,%f,%f,%f\n",	
-//			Convert_to_degrees(Save_Data.latitude),
-//			Convert_to_degrees(Save_Data.longitude),
-//			motor_chassis[0].speed_rpm,
-//			motor_chassis[1].speed_rpm,
-//			-motor_chassis[2].speed_rpm,
-//			-motor_chassis[3].speed_rpm,
-//			euler.angle.yaw,
-//			LinearAcc.axis.x,Save_Data.X,Save_Data.Y);
+usart_printf("%lf,%lf,%d,%d,%d,%d,%f,%f,%f,%f,%f,%f,%f,%f,%f\n",	
+			Convert_to_degrees(Save_Data.latitude),
+			Convert_to_degrees(Save_Data.longitude),
+			motor_chassis[0].speed_rpm,
+			motor_chassis[1].speed_rpm,
+			-motor_chassis[2].speed_rpm,
+			-motor_chassis[3].speed_rpm,
+			real_vcx,
+			real_w,
+			gyro[2],
+			euler.angle.roll,
+			euler.angle.pitch,
+			euler.angle.yaw,
+			LinearAcc.axis.x,
+			gps_X-gps_X0,
+			gps_Y-gps_Y0
+			);
 	// usart_printf("%0.3f,%0.3f,%0.3f\n", euler.angle.roll, euler.angle.pitch, euler.angle.yaw);
-	// PrintGpsBuffer();
+//	 PrintGpsBuffer();
 }
 
 /* USER CODE END 4 */

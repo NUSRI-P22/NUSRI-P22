@@ -129,6 +129,18 @@ void Speed_set()
 	}
 	
 }
+//Using motor_speed(rpm) to calculate the velocity(m/s) and angular velocity(rad/s) of the car
+void MOTORrpm2vw(float left_motor_speed,float right_motor_speed,float *vcx,float*w)
+{
+	const float c = 0.5;	 //m
+	const float r = 0.1;   //m
+	float left_wheel_w = left_motor_speed/19.0f/9.55f;  //motor_speed(rpm)->wheel_speed(rad/s)
+	float right_wheel_w = right_motor_speed/19.0f/9.55f;
+	float vL = left_wheel_w * r;
+	float vR = right_wheel_w * r;
+	*vcx = 0.5*vL + 0.5*vR;;   //  m/s
+	*w = -vL/c + vR/c;           //  rad/s
+}
 void speed_print()
 {
 	usart_printf("%d,%f,%f,%d,%d,%f,%d,%d,%d\n",motor_chassis[0].speed_rpm,       set_spdL,   motor_pid[0].output,   PS2_LY,PS2_RX,MAX_Speed,motor_shutdown,motor_ready,free_flag);		

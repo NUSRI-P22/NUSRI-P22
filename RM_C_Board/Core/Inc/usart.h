@@ -75,8 +75,7 @@ typedef struct SaveData
 	char longitude[longitude_Length];	
 	char E_W[E_W_Length];		
 	char isUsefull;		
-	double X;
-	double Y;
+
 } _SaveData;
 
 extern char rxdatabufer;

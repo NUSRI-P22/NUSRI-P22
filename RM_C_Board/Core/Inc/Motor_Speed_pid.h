@@ -16,5 +16,6 @@ void Motor_Speed_pid_init(void);
 void Set_free(void);
 void Speed_set(void);
 void speed_print(void);
+void MOTORrpm2vw(float left_motor_speed,float right_motor_speed,float *vcx,float*w);
 float low_pass_filter(float value, float fc, float Ts);
 #endif

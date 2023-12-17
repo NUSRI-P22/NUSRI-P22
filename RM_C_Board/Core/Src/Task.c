@@ -27,7 +27,7 @@ void TaskCheck(){
 }
 
 void TaskRun(){
-    for(uint8_t i = 1; i < tot; i++){
+    for(uint8_t i = 1; i <= tot; i++){
         // Only run task that is on, not running and not waiting
         if(Tasks[i].IsOn && !Tasks[i].Running && !Tasks[i].Waiting){
             Tasks[i].Waiting = Tasks[i].Period; // Reset Waiting Period
