@@ -4,8 +4,8 @@
 #include <stdbool.h>
 
 
-extern bool motor_ready;
-extern bool motor_shutdown;
+extern int motor_ready;
+extern int motor_shutdown;
 extern int speed_count;
 extern float Max_speed[];
 extern float MAX_Speed;

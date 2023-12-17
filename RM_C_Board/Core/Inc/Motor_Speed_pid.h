@@ -8,7 +8,7 @@ extern float set_spdL1;
 extern float set_spdR1;
 extern float Vcx;  
 extern float Wc; 
-extern bool free_flag;
+extern int free_flag;
 
 
 void Motor_Speed_Calc(void);
