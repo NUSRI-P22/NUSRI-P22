@@ -7,3 +7,5 @@ NUSRI AY23/24 Final Year Project NO.22
 Autoware: [autoware.p22](https://github.com/TangLongbin/autoware.p22)
 
 C 板代码: [RM_C_Board.p22](https://github.com/TangLongbin/RM_C_Board.p22)
+
+Vehicle_Launch: [vehicle_launch.p22](https://github.com/NUSRI-P22/vehicle_launch.p22)
