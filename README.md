@@ -18,3 +18,11 @@ NUSRI AY23/24 Final Year Project NO.22
 
 * [ ] Autoware.universe.p22: [autoware.universe.p22](https://github.com/NUSRI-P22/autoware.universe.p22)
 
+## Temporary Rosbag
+You should first use ```cd```command to the change to the corresponging dictionary.
+And then run the command below to download and unzip the rosbag
+```
+gdown  14XoxOpdKZp0c853ZE7vyyiFOkyqw44-L
+unzip rosbag2_2024_01_23-23_12_46.zip
+```
+
