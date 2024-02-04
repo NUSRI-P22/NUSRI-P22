@@ -16,7 +16,15 @@ NUSRI AY23/24 Final Year Project NO.22
 * [ ] P22_individual_params: [p22_individual_params](https://github.com/NUSRI-P22/p22_individual_params)
 * [X] Autoware_launch.p22: [autoware_launch.p22](https://github.com/NUSRI-P22/autoware_launch.p22)
 * [ ] Autoware.universe.p22: [autoware.universe.p22](https://github.com/NUSRI-P22/autoware.universe.p22)
-* [ ] UnilidarSDK: [unilidar_sdk](https://github.com/NUSRI-P22/unilidar_sdk)
+* [X] UnilidarSDK: [unilidar_sdk](https://github.com/NUSRI-P22/unilidar_sdk)
+
+## [PCL] in UnilidarSDK
+
+Because `pcl` is not an official ros2 package, there will show `definition error` while using `rosdep` to install packages.
+
+To deal with this problem, `<depend>pcl</depend>` was commented in `package.xml` since `<depend>pcl_conversions</depend>` will automatically install `pcl`.
+
+If there is any problem with `pcl`, you can uncomment it in `package.xml`.
 
 ## Temporary Rosbag
 
