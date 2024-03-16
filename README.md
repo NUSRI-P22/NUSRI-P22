@@ -11,7 +11,6 @@ NUSRI AY23/24 Final Year Project NO.22
 
   * [X] Lidar
   * [X] Odom
-  * [-] GPS
   * [ ] Radar
 * [ ] P22_individual_params: [p22_individual_params](https://github.com/NUSRI-P22/p22_individual_params)
 * [X] Autoware_launch.p22: [autoware_launch.p22](https://github.com/NUSRI-P22/autoware_launch.p22)
