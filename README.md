@@ -16,6 +16,7 @@ NUSRI AY23/24 Final Year Project NO.22
 * [X] Autoware_launch.p22: [autoware_launch.p22](https://github.com/NUSRI-P22/autoware_launch.p22)
 * [ ] Autoware.universe.p22: [autoware.universe.p22](https://github.com/NUSRI-P22/autoware.universe.p22)
 * [X] UnilidarSDK: [unilidar_sdk](https://github.com/NUSRI-P22/unilidar_sdk)
+* [X] gyro_odometry: [gyro_odometry](https://github.com/NUSRI-P22/gyro_odometry)
 
 ## [PCL] in UnilidarSDK
 
