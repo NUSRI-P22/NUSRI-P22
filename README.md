@@ -10,8 +10,8 @@ NUSRI AY23/24 Final Year Project NO.22
 * [ ] Sensor_kit_Launch: [p22_sensor_kit_launch](https://github.com/NUSRI-P22/p22_sensor_kit_launch)
 
   * [X] Lidar
-  * [ ] IMU
-  * [ ] GPS
+  * [X] Odom
+  * [-] GPS
   * [ ] Radar
 * [ ] P22_individual_params: [p22_individual_params](https://github.com/NUSRI-P22/p22_individual_params)
 * [X] Autoware_launch.p22: [autoware_launch.p22](https://github.com/NUSRI-P22/autoware_launch.p22)
