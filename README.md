@@ -40,8 +40,8 @@ unzip rosbag2_2024_01_23-23_12_46.zip
 * Make sure you have updated the workspace by using vcs tool.
 
 ```shell
-cd autoware
 git clone https://github.com/NUSRI-P22/autoware.p22.git
+cd autoware.p22
 vcs import src < autoware.repos
 vcs pull src
 ```
