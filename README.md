@@ -37,7 +37,16 @@ unzip rosbag2_2024_01_23-23_12_46.zip
 
 ## Launch Sensor_kit
 
-* Make sure you have updated the workspace by using vcs tool. In that case, you will have those files:
+* Make sure you have updated the workspace by using vcs tool.
+
+```shell
+cd autoware
+git clone https://github.com/NUSRI-P22/autoware.p22.git
+vcs import src < autoware.repos
+vcs pull src
+```
+
+* In that case, you will have those files:
 
 ```shell
 autoware.p22/src/sensor_kit/p22_sensor_kit_launchautoware.p22(make sure this is the only sensor kit, otherwise, it will not work.)
