@@ -10,13 +10,12 @@ NUSRI AY23/24 Final Year Project NO.22
 * [ ] Sensor_kit_Launch: [p22_sensor_kit_launch](https://github.com/NUSRI-P22/p22_sensor_kit_launch)
 
   * [X] Lidar
-  * [X] Odom
+  * [X] Odom : [gyro_odometry](https://github.com/NUSRI-P22/gyro_odometry)
   * [ ] Radar
 * [ ] P22_individual_params: [p22_individual_params](https://github.com/NUSRI-P22/p22_individual_params)
 * [X] Autoware_launch.p22: [autoware_launch.p22](https://github.com/NUSRI-P22/autoware_launch.p22)
 * [ ] Autoware.universe.p22: [autoware.universe.p22](https://github.com/NUSRI-P22/autoware.universe.p22)
 * [X] UnilidarSDK: [unilidar_sdk](https://github.com/NUSRI-P22/unilidar_sdk)
-* [X] gyro_odometry: [gyro_odometry](https://github.com/NUSRI-P22/gyro_odometry)
 
 ## [PCL] in UnilidarSDK
 
