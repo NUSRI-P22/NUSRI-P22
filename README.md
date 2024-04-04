@@ -42,6 +42,7 @@ unzip rosbag2_2024_01_23-23_12_46.zip
 ```shell
 git clone https://github.com/NUSRI-P22/autoware.p22.git
 cd autoware.p22
+mkdir src
 vcs import src < autoware.repos
 vcs pull src
 ```
