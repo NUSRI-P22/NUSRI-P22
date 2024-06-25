@@ -41,7 +41,7 @@ unzip rosbag2_2024_01_23-23_12_46.zip
 
 
 ```shell
-gdown https://drive.google.com/drive/folders/1-5hLWbCWF_BdT3XyLleuKqjF6RqyRD83
+gdown https://drive.google.com/drive/folders/1-5hLWbCWF_BdT3XyLleuKqjF6RqyRD83 --folder
 ```
 
 ## Launch Sensor_kit
