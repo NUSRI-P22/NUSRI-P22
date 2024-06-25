@@ -16,6 +16,7 @@ NUSRI AY23/24 Final Year Project NO.22
 * [X] Autoware_launch.p22: [autoware_launch.p22](https://github.com/NUSRI-P22/autoware_launch.p22)
 * [ ] Autoware.universe.p22: [autoware.universe.p22](https://github.com/NUSRI-P22/autoware.universe.p22)
 * [X] UnilidarSDK: [unilidar_sdk](https://github.com/NUSRI-P22/unilidar_sdk)
+* [X] NUSRI_map : https://drive.google.com/drive/folders/1-5hLWbCWF_BdT3XyLleuKqjF6RqyRD83?usp=drive_link
 
 ## [PCL] in UnilidarSDK
 
@@ -25,6 +26,7 @@ To deal with this problem, `<depend>pcl</depend>` was commented in `package.xml`
 
 If there is any problem with `pcl`, you can uncomment it in `package.xml`.
 
+
 ## Temporary Rosbag
 
 You should first use ``cd``command to the change to the corresponging dictionary.
@@ -33,6 +35,13 @@ And then run the command below to download and unzip the rosbag
 ```shell
 gdown  14XoxOpdKZp0c853ZE7vyyiFOkyqw44-L
 unzip rosbag2_2024_01_23-23_12_46.zip
+```
+
+## NUSRI_Map
+
+
+```shell
+gdown https://drive.google.com/drive/folders/1-5hLWbCWF_BdT3XyLleuKqjF6RqyRD83
 ```
 
 ## Launch Sensor_kit
